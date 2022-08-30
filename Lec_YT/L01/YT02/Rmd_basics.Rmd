@@ -1,0 +1,147 @@
+---
+title: "Rmd basics"
+author: "Your name here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. 
+
+## Adding Code Chunk
+
+An R Markdown Chunk is a section you embed in your code that allows you to run R code.
+
+**Exercise 1:** Insert an `R` code chunk on a new line below.
+
+## Run Code
+
+**Exercise 2:**  Try some basic math problems in the code chunk below and see how R works as a calculator. 
+
+Please recall the [order of operations](https://www.mathsisfun.com/operation-order-pemdas.html) and how that may affect your answer. For example, try calculating  4 + 7 / 10 ^ 2. What happens if you put parentheses around 4 + 7?
+
+```{r basicmath}
+2+2
+```
+
+**Note:** `basicmath` is called the **label** of the code chunk.
+
+**Exercise 3:** Use the right facing arrow to run the code chunk above labeled `basicmath` and observe the output of running the code chunk. 
+
+
+# Extra
+
+If you are interested in knowing some more Rmarkdown basics, keep reading. 
+
+## Adding `echo` parameter to a code chunk
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Using the `echo = FALSE` parameter to the code chunk prevents printing of the R code that generated the plot.
+
+**Exercise 4:** Knit the document and check that the code chunk labled `pressure` did not print.
+
+**Exercise 5:** Copy the `pressure` code, label it as `pressure2`, change the `echo` parameter to `echo = TRUE`. Knit the document and check that the code chunk printed along with the plot..
+
+Add your code chunk below
+
+**Note:** 
+
+1. If you forget to give a code chunk a unique label, it won't knit. You'll get an error `Duplicate chunk label 'pressure'`.
+2. If instead of labeling the code chunk `pressure2`, you accidentally change the code to `plot(pressure2)`, you'll get an error `Error in plot(pressure2) : object 'pressure2' not found`.
+
+
+## R Markdown YAML
+
+You will notice that at the very top of this file, there is a header with several lines of code, with three dashes above it and three dashes below. This is called the YAML of the Rmarkdown (.Rmd) file 
+
+```
+---
+title: "Rmd basics"
+author: "Your name here"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+---
+```
+
+The YAML may include the title, sub-title, the author name, the date, and the output (among other things).The output tells R what kind of output you would like to make (e.g., a html documnet or Word document or a pdf). You can change this if you would like and even if it says html, it's possible to override it to knit to Word or pdf even without changing the header. 
+
+## Headings and subheadings
+
+Outside of each chunk, if you type text, it will appear in your final report. To denote when you are moving from one section (text+ any R Chunk related to that text) to another, you should making a heading for that section. To make a heading, you use the # symbol. If you want it to be a large heading, use only one or two #. If you want to make a subheading, use more of them. By creating a heading, you are creating a section of text + any R chunk code or plots.
+
+Observe how headers and subheadings have been used in this document and how they appear in the knitted document. 
+
+## Inline code
+
+Let's say that you want to show your reader what some code would look like, but don't want to actually execute it with a chunk. You can use a back quote (i.e., `)  before and after an area of text to create a gray box similar to that which displays the text of a chunk. 
+
+For example: ` 4+4 equals 8 ` was created by typing `` ` 4+4 equals 8 ` ``.
+
+
+
+## Table
+
+Another thing you can do in the text of a R Markdown file is create a table. Below is the code I used to create a table and the output when I put the code inside my Markdown file.
+
+
+```
+Column 1 | Column 2
+-------- | --------
+Cell 1   | Cell 2
+Cell 3   | Cell 4 
+```
+
+Column 1 | Column 2
+-------- | --------
+Cell 1   | Cell 2
+Cell 3   | Cell 4
+
+## Formating text bold or italics
+
+In Markdown, if you would like your text to be in italics or bold, you should (respectively) put one or two asterisks both before and after the section you want to appear that way. The below table demonstrates what you should type in Markdown and how it then appears.
+
+| Markdown format | Output    |
+|-----------------|-----------|
+| `*italics*`     | *italics* |
+| `**bold**`      | **bold**  |
+
+## Adding hyperlinks 
+
+Finally, if you want to include a hyperlink in your Markdown file, do it by putting the word you want to have the link in brackets [] and the website in (). For example, if I wanted to link to the RStudio website, I would do it like this
+`[This](https://rstudio.com/)` 
+
+[This](https://rstudio.com) is what that code creates outside of the quotes I used to show the example. Clicking on the word `This` in the output file takes you to the hyperlink.
+
+**Note: ** There can be no space between the square and round brackets `](` otherwise you'll get an error or the link won't show in your knitted document.  
+
+There are many other things that you can do in Markdown beyond these those discussed here; a helpful cheat sheet is available [here](https://rstudio.com/wp-content/uploads/2015/02/RMarkdown-cheatsheet.pdf). 
+
+## A final note on knitting
+
+Sometimes your file won't be able to knit. If there is an issue with your code in one (or more) of the chunks, then R won't be able to knit the Markdown file. Helpfully, R will tell you where the first error in the document occurred should there be an issue. If your Markdown file still won't knit, another thing to double check is to make sure that you haven't given two chunks the same name.
+
+## Tip 
+
+Keep knitting your file every time you add something - a code chunk or a paragraph of text or a plot. If you wait to knit till you've added everything, resolving the errors will get frustrating. 
+
+
+
