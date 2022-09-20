@@ -1,19 +1,21 @@
 ---
-title: "Rmd basics"
-author: "Your name here"
+title: "Worksheet 00: Rmd basics"
+author: "Your netid, last name, first name here"
 date: "`r Sys.Date()`"
 output:
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
     toc_float: yes
-  pdf_document:
-    toc: yes
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+## This is the same file from lecture. Complete it during Section and submit your knitted pdf/html file to Canvas using the submission link for Worksheet 00.
 
 # R Markdown
 
@@ -25,7 +27,11 @@ When you click the **Knit** button a document will be generated that includes bo
 
 An R Markdown Chunk is a section you embed in your code that allows you to run R code.
 
-**Exercise 1:** Insert an `R` code chunk on a new line below.
+**Exercise 1:** Insert an `R` code chunk on a new line below. After the **Solution 1:** text below, add a statement to the fact that you completed the above exercise successfully or mention any difficulties you encountered  or help received to complete this exercise.
+
+
+**Solution 1:** 
+
 
 ## Run Code
 
@@ -33,18 +39,22 @@ An R Markdown Chunk is a section you embed in your code that allows you to run R
 
 Please recall the [order of operations](https://www.mathsisfun.com/operation-order-pemdas.html) and how that may affect your answer. For example, try calculating  4 + 7 / 10 ^ 2. What happens if you put parentheses around 4 + 7?
 
+**Solution 2:**
+
 ```{r basicmath}
-2+2
+
 ```
 
 **Note:** `basicmath` is called the **label** of the code chunk.
 
-**Exercise 3:** Use the right facing arrow to run the code chunk above labeled `basicmath` and observe the output of running the code chunk. 
+**Exercise 3:** Use the right facing arrow to run the code chunk above labeled `basicmath` and observe the output of running the code chunk. After the **Solution 3:** text below, add a statement to the fact that you completed the above exercise successfully or mention any difficulties you encountered or help received to complete this exercise.
+
+**Solution 3:** 
 
 
-# Extra
+# Extra : To be completed during first discussion section
 
-If you are interested in knowing some more Rmarkdown basics, keep reading. 
+Keep reading for some more Rmarkdown basics.
 
 ## Adding `echo` parameter to a code chunk
 
@@ -54,21 +64,36 @@ plot(pressure)
 
 Using the `echo = FALSE` parameter to the code chunk prevents printing of the R code that generated the plot.
 
-**Exercise 4:** Knit the document and check that the code chunk labled `pressure` did not print.
+**Exercise 4:** Knit the document and check that the code chunk labled `pressure` did not print. After the **Solution 4:** text below, add a statement  so that we can verify that you completed the above exercise successfully or mention any difficulties you encountered or help received to complete this exercise.
 
-**Exercise 5:** Copy the `pressure` code, label it as `pressure2`, change the `echo` parameter to `echo = TRUE`. Knit the document and check that the code chunk printed along with the plot..
+**Solution 4: **
 
-Add your code chunk below
+**Exercise 5:** Copy the `pressure` code chunk, label it as `pressure2`, change the `echo` parameter to `echo = TRUE`. Knit the document and check that the code chunk printed along with the plot..
+
+Add your code chunk below beginning with the text **Solution 5:** and ending with a statement so that we can verify that you completed the above exercise successfully or  mention any difficulties you encountered or help received to complete this exercise. 
+
+
+
+
+
 
 **Note:** 
 
 1. If you forget to give a code chunk a unique label, it won't knit. You'll get an error `Duplicate chunk label 'pressure'`.
 2. If instead of labeling the code chunk `pressure2`, you accidentally change the code to `plot(pressure2)`, you'll get an error `Error in plot(pressure2) : object 'pressure2' not found`.
 
+Can you fix these errors? If not, ask for help from your peers, ULA, TA, instructor. 
+
+
+
+From now on, you should make it a point to add text **Solution :** whenever you begin solving an exercise in class, discussion or homework and also summarize your findings or any help received  from doing the exercise **whether or not** we explicitly ask you to document it.
+
 
 ## R Markdown YAML
 
 You will notice that at the very top of this file, there is a header with several lines of code, with three dashes above it and three dashes below. This is called the YAML of the Rmarkdown (.Rmd) file 
+
+If you are curious, google what is YAML to find it's full form. 
 
 ```
 ---
@@ -95,6 +120,8 @@ Observe how headers and subheadings have been used in this document and how they
 Let's say that you want to show your reader what some code would look like, but don't want to actually execute it with a chunk. You can use a back quote (i.e., `)  before and after an area of text to create a gray box similar to that which displays the text of a chunk. 
 
 For example: ` 4+4 equals 8 ` was created by typing `` ` 4+4 equals 8 ` ``.
+
+Simple one line math operations can be executed without a chunk by using typing r 4+4 within two back tics \`. Check that typing r 4+4 within two back tics actually evaluates and prints out on the result `8` rather than printing out the operation 4+4: `r 4+4` 
 
 
 
@@ -137,11 +164,20 @@ There are many other things that you can do in Markdown beyond these those discu
 
 ## A final note on knitting
 
-Sometimes your file won't be able to knit. If there is an issue with your code in one (or more) of the chunks, then R won't be able to knit the Markdown file. Helpfully, R will tell you where the first error in the document occurred should there be an issue. If your Markdown file still won't knit, another thing to double check is to make sure that you haven't given two chunks the same name.
+Sometimes your file won't be able to knit. If there is an issue with your code in one (or more) of the chunks, then R won't be able to knit the Markdown file. Helpfully, R will tell you where (line number where) the first error in the document occurred should there be an issue. If your Markdown file still won't knit, another thing to double check is to make sure that you haven't given two chunks the same name.
 
 ## Tip 
 
 Keep knitting your file every time you add something - a code chunk or a paragraph of text or a plot. If you wait to knit till you've added everything, resolving the errors will get frustrating. 
 
+
+**Exercise 6:** Check that 
+a. you have completed all exercises in the worksheet .Rmd file
+b. that you can knit your worksheet into html/pdf
+c. You have changed the author name in YAML to your information.
+d. **(Optional for this worksheet, necessary for future assignments:)** We appreciate if you change the file name to Worksheet01_yournetid.Rmd by going to files pane, selecting the worksheet and then using the Rename button. By doing so you will have to close this document, open it with it's new name and knit it again to get the pdf/html for submission. In future, it'll be better to copy the original file  by selecting it from the file list, and use copy to to copy it to the same directory with the new name Worksheet01_yournetid.Rmd
+e. Download your knitted html/pdf document and upload it to Canvas Worksheet 00 submission link within 30 mins after your section ends.
+
+**Note** For this worksheet only, I will allow you an extended no penalty extension to complete and upload your worksheet by Week 1 Friday 8am. There will be PSTAT 10 Welcome clinics hosted by our PSTAT 10 ULA's on Friday September 23rd to help you work through this worksheet. Please check Canvas for times and locations of these PSTAT 10 Welcome clinics. There will be bonus points allocated for stopping by, saying hello to a ULA and asking them something about the course or PSTAT department in general. ULAs will be a great resource, stop by and ask them how they can help you!
 
 
