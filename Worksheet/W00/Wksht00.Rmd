@@ -3,11 +3,11 @@ title: "Worksheet 00: Rmd basics"
 author: "Your netid, last name, first name here"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
+  pdf_document:
+    toc: yes
 ---
 
 
@@ -182,19 +182,20 @@ Keep knitting your file every time you add something - a code chunk or a paragra
 
 
 **Exercise 6:** Check that 
+
 a. you have completed all exercises in the worksheet .Rmd file
 b. that you can knit your worksheet into html/pdf
 c. You have changed the author name in YAML to your information.
-d. **(Optional for this worksheet, necessary for future assignments:)** We appreciate if you change the file name to Worksheet01_yournetid.Rmd by going to files pane, selecting the worksheet and then using the Rename button. By doing so you will have to close this document, open it with it's new name and knit it again to get the pdf/html for submission. In future, it'll be better to copy the original file  by selecting it from the file list, and use copy to to copy it to the same directory with the new name Worksheet01_yournetid.Rmd
+d. **(Optional for this worksheet, necessary for future assignments:)** We appreciate if you change the file name to Worksheet01_yournetid.Rmd by going to files pane, selecting the worksheet and then using the Rename button. Knit this document again to get the pdf/html for submission. In future, before starting to work on the .Rmd file, it'll be better to rename the file with your netid before editing it.
 e. Download your knitted html/pdf document and upload it to Canvas Worksheet 00 submission link within 30 mins after your section ends.
 
-**Note** For this worksheet only, I will allow you an extended no penalty extension to complete and upload your worksheet by Week 1 Friday 8am. There will be PSTAT 10 Welcome clinics hosted by our PSTAT 10 ULA's on Friday September 23rd to help you work through this worksheet. Please check Canvas for times and locations of these PSTAT 10 Welcome clinics. There will be bonus points allocated for stopping by, saying hello to a ULA and asking them something about the course or PSTAT department in general. ULAs will be a great resource, stop by and ask them how they can help you!
+**Note :** For this worksheet only, I will allow you an extended no penalty extension to complete and upload this worksheet by Week 1 Friday, September 30 8am. There will be PSTAT 10 Welcome clinics hosted by our PSTAT 10 ULA's on Friday September 23rd to help you work through this worksheet. Please check Canvas for times and locations of these PSTAT 10 Welcome clinics. ULA's will be a great resource to aid your learning in the course. Even if you do not need help with this worksheet, consider stopping by to say hello to a ULA and asking them something about the course or PSTAT department in general or even ask them how they can help you in the course!
 
+# Learning Gains today: 
 
-# Learning Goals
-
-What topics did you learn today?
+What did you learn today?
 
 - Topic 1
 - Topic 2
 - Topic 3
+
