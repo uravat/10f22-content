@@ -74,7 +74,7 @@ plot(pressure)
 
 Using the `echo = FALSE` parameter to the code chunk prevents printing of the R code that generated the plot.
 
-**Exercise 4:** Knit the document and check that the code chunk labled `pressure` did not print. After the **Solution 4:** text below, add a statement  so that we can verify that you completed the above exercise successfully or mention any difficulties you encountered or help received to complete this exercise.
+**Exercise 4:** Knit the document and check that the code chunk labeled `pressure` did not print. After the **Solution 4:** text below, add a statement  so that we can verify that you completed the above exercise successfully or mention any difficulties you encountered or help received to complete this exercise.
 
 `r bfcolor("Solution 4:", "blue")` 
 
