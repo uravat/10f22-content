@@ -2,7 +2,7 @@
 title: "PSTAT 10: Worksheet 1"
 subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
 author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
-date: "Due on Gradescope 30 mins after Section following Lecture 1"
+date: "Due on Canvas 30 mins after Section following Lecture 1"
 output:
   html_document:
     theme: readable
