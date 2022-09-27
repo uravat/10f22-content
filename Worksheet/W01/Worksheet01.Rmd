@@ -1,0 +1,154 @@
+---
+title: "PSTAT 10: Worksheet 1"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due on Gradescope 30 mins after Section following Lecture 1"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+## Exercise 1: `R` as a calculator
+
+Recall that `R` can be used as a calculator! The following arithmetic operators are understood by `R`:
+
+- $+$ addition 
+- $-$ subtraction
+- $*$ multiplication
+- / division
+
+There are many built-in functions to make calculations easier. For example, calculate the $\sqrt{64}$ using the square root function `sqrt()` \
+
+**(a)** Calculate $\displaystyle \sqrt{ \frac{4^{0.213}}{1 + \ln\left( \frac{7}{3} \right)}  }$
+
+`r bfcolor("Solutions:", "blue")`
+
+**(b)** Calculate $\displaystyle \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + 2}}}$
+
+`r bfcolor("Solutions:", "blue")`
+
+---
+
+# Exercise 2: Variables and assignment
+
+For this problem, it is very important you follow the steps in order.
+
+**(a)** Initialize a new random variable called `x`, and assign it the value 2.
+
+`r bfcolor("Solutions:", "blue")`
+
+**(b)** Now assign the value 4 to `x`.
+
+`r bfcolor("Solutions:", "blue")`
+
+**(c)** Write `R` code to add 3 to whatever is the value of `x`. Don't store this new value, and don't just print the number "7".
+
+`r bfcolor("Solutions:", "blue")`
+
+
+**(d)** **Before you run any code,** what do you think the result of `x / 2` will be?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+**(e)** Run the code  `x / 2`  and comment on the result. Did you get `3.5` which is `7/2` ? Why or why not?
+
+`r bfcolor("Solutions:", "blue")`
+
+**(f)** **Before you run any code,** what do you think the result of `x / 0` will be?
+
+`r bfcolor("Solutions:", "blue")`
+
+**(g)** Finally, run the code `x / 0` and comment on the result. Is this surprising?
+
+`r bfcolor("Solutions:", "blue")`
+
+---
+
+# Exercise 3: `R` Datasets Package
+When you start an R session, R automatically installs some packages. One such package that is loaded is the Base R `datasets` . 
+
+
+**(a)** Read the help page for the `datasets` package. Note down the command you used as your solution to this exercise.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+**(b)** **List of datasets that come with R Datasets Package: ** Use the  help page for the `datasets` package to look at all the datasets that are contained in the `datasets` package. Note down the command you used as your solution to this exercise. Write down as a list, three packages that seem interesting to you and what makes them interesting to you.  
+
+`r bfcolor("Solutions:", "blue")`
+
+---
+
+# Exercise 4: Tokyo Drift
+
+In this exercise, we will play around with a relatively famous `R` dataset called `mtcars.` 
+
+**(a)** Access the help file on `mtcars`. Do you need to install and/or load any packages to access the `mtcars` dataset? If so, install and/or load those packages.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+**(b)** In what year was this data collected? (As Data Scientists, it is very important to know as much about our data as possible *before* beginning to run analyses! Formally, in datascience, this help file about a dataset is called `Data Codebook`)
+
+`r bfcolor("Solutions:", "blue")`
+
+**(c)** If a particular car has a `carb` value of 4, what does this mean (in words)? (In other words, what does the variable `carb` measure?) _You do not need to run any code for this exercise._
+
+`r bfcolor("Solutions:", "blue")`
+
+**(d)** Take a look at the data with the `View` command. Do you notice any `NA` values? Notice how  the column names correspond to the ones you saw in the `Data codebook` tab earlier. 
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(e)** Compute the median number of miles per gallon of the cars included in the `mtcars` dataset. Assign this median value to a variable. Be sure to name the variable appropriately. 
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(f)** Sort the amount of gross horsepower in decreasing order. _Use the `sort` function._
+
+`r bfcolor("Solutions:", "blue")`
+
+**(g)** **FTC: Optional, Extra** Using the print and paste function, print "The median number of miles per gallon of cars included in the mtcars dataset is xxxx." Your statement should have xxx replaced by the value of median you calculated earlier. 
+
+_Hint :_ Check the help for the paste function and search for the line that begins with _paste("1st", ..._ or _paste("The value is",...._
+
+`r bfcolor("Solutions:", "blue")`
+
+
+---
+
+# Exercise 5: Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+- Gain 1
+- Gain 2
+- Gain 3
