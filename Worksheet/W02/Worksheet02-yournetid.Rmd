@@ -1,0 +1,154 @@
+---
+title: "PSTAT 10: Worksheet 2"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due on Canvas 30 mins after Section following Lecture 2"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+## Exercise 0: YAML
+
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+## Exercise 1: Element-ary, Dear Watson
+
+Create a vector `x` containing the elements 5, 7, 3, 10, 1, 7, 19 ,5, 2
+
+Write code to:
+
+**(a)** extract the 4th element of `x`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** extract the 5th , 6th and 7th elements of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(c)** find the median of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(d)** determine the length of `x`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(e)** **(Optional)** Assign the name of nine of your friends as names attribute of this vector `x`. Verify that that the names have been assigned correctly.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 2: Rep-and-Roll
+
+Using `rep()` function, create the following vectors:
+
+**(a)** 6 6 6 6 6 6 6
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** 3 3 3 4 4 4 6 6 6
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+\
+
+---
+
+## Exercise 3: Combined Intellect
+
+Given variables `p <- c(2,3,4,6,6)` and `q <- c(7,2,4,3,2)`. 
+
+**(a)** Create a vector `z` by combining the vectors `p` and `q`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+**(b)** Explain the difference in the results of `p + q` and
+`sum(p + q)`
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+\
+
+---
+
+## Exercise 4: :)
+
+
+Rewrite the following code using the colon operator.
+
+```{r, eval = F}
+x <- c(-50, -51, -52, -53, -54, -53, -52, -51, -50)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+\
+
+---
+
+## Exercise 5: Rep-and-Roll, Electric Boogaloo
+
+
+Use the replicate function `rep()` to generate the following sequence:
+
+1 1 2 2 3
+
+(Note: there is not an error here. The required sequence has only one instance of ‘3’)
+
+`r bfcolor("Solutions:", "blue")`
+
+
+
+---
+
+
+# Last Exercise: Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+- Gain 1
+- Gain 2
+- Gain 3
