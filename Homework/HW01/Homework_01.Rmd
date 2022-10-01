@@ -1,0 +1,268 @@
+---
+title: 'PSTAT 10: Homework 1'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Wednesday October 5"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions
+
+- Remember to always copy the necessary files to your working directory; never edit and/or knit the files directly in the `10f22-content` folder.
+
+- Rename your `.Rmd` file as `hw01-your-netid.Rmd`. For example, my Rmd script file will be `hw01-umaravat.Rmd`.
+
+- Make sure to include your identifying details in the Rmd file.
+
+- **Please keep in mind that there are 5 additional Multiple Choice questions that appear on Canvas**, in the submission portal for this homework. These questions are still considered a part of the homework, and you must complete them in order to be eligible to earn full points.
+
+- When submitting to Canvas, follow the provided submission instructions carefully.
+
+---
+
+# Exercises  
+
+
+## Exercise 0: YAML
+
+
+Update the YAML to reflect your own information (i.e. name, netid, etc.).
+
+---
+
+## Exercise 1: Lecture 2 Summary
+
+### Part (a): DataTypes
+
+Write down a bulleted list of the types of data `R` supports. Make sure your list displays properly in your final knitted document. 
+
+`r bfcolor("Solutions:", "blue")`
+
+\
+
+### Part (b): Glossary of Functions
+
+Fill in the following table with the functions you learned in Lecture 02. Add as many lines as you feel are necessary (remember that Worksheet 0 covered how to add rows to tables in Markdown).
+
+`r bfcolor("Solutions:", "blue")`
+
+
+| *`R` Function* | *Description of Function* | *Example of the Function* |
+|------|-------|-------|
+| `c` | combines elements into a vector | `c(1, 2, "hello")` |
+
+
+
+---
+
+## Exercise 2: Splitting Hairs
+
+In this problem, we'll deal with a new function that can help manage strings. Remember- HELP files are your friend! \
+
+**(a)** Look up the `strsplit()` function in RStudio Help.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(b)** Write down code that takes the string "hair" and returns "h" "a" "i" "r".
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(c)** The function `extract_month()`, which has been partially written below, is designed to take in a date of the form MM/DD/YY (coded as a string), and extract out the month. For instance, `extract_month("09/30/22")` should return `"09"`. Copy the code into a new code chunk (below the `r bfcolor("Solutions:", "blue")` line) and complete the code to ensure the function works as expected.
+
+```{r, eval = F}
+extract_month <- function(x) {
+  split_date <- <REPLACE THIS WITH YOUR CODE>
+  return(split_date[[1]][1]) # DO NOT CHANGE THIS LINE
+}
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(d)** Test your function with 3 different dates.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 3: Chunky Guacamole
+
+In this problem, we'll get some more practice with basic `R` commands. For each part, you will need to insert a code chunk on the line right after the `r bfcolor("Solutions:", "blue")` line. Additionally, at least one of the parts below may result in a code chunk that contains an error; **that is fine!** Just make sure your final document still knits, even with that error (hint: what options can you pass into your code chunk to ensure that it knits, despite there being an error present? This was covered in Lecture 1)
+
+**(a)** Assign the value `3` to a variable called `guac`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(b)** Assign the value `1` to a variable called `a`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(c)** Assign the value `"yummy"` to a variable called `mole`.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(d)** What should the code `guac + a` return? Confirm your answer by running the code in a code chunk.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(e)** What do you think `guac + a + mole` will return? _No coding required for this part_
+
+`r bfcolor("Solutions:", "blue")` 
+
+
+\
+
+**(f)** Now, run the code `guac + a + mole` and comment on the result.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 4: Palmy Weather
+
+The file `palm.csv` contains data on the prevalence of four different types of palm trees in the Santa Barbara Area. The four types of palm trees are encoded as:
+
+- `MFP`: Mexican Fan Palm
+- `KP`: King Palm
+- `QP`: Queen Palm
+- `FP`: Foxtail Palm
+
+Each row of the data consists of the number of each type of palms in a certain city block; each block is coded with a unique identifying number, which is stored as `ID`. \
+
+The following code chunk can be used to load in the dataset as a dataframe, assigned to the variable `palm`:
+```{r}
+palm <- read.csv("./data/palm.csv", header = T)
+```
+
+**(a)** How many city blocks were included in this study?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(b)** What is the average density of Mexican Fan Palms per City Block?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(c)** What is the median density of Foxtail Palms per City Block?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(d)** Which City Block contains the most King Palms?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(e)** Which city block contains the fewest Queen Palms? 
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+---
+
+## Exercise 5: Score!
+
+Suppose we have exam scores for 5 students: Brad, Angelina, Sandra, Michelle, and John. Their scores are 7, 5, 9, 10, and 6, respectively.
+
+**(a)** Create a vector of these scores.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(b)** Find the mean score in two ways (using `mean` and using `sum`).
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(c)** Find the median score.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(d)** Assign the name of each student to their test score.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(e)** Retrieve Alice's score in two ways.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(f)** Retrieve Amy's and Alice's score, in that order.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
+
+**(g)** Retrieve the scores of everyone except Amy.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+\
