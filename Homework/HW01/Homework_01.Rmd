@@ -246,21 +246,21 @@ Suppose we have exam scores for 5 students: Brad, Angelina, Sandra, Michelle, an
 
 \
 
-**(e)** Retrieve Alice's score in two ways.
+**(e)** Retrieve Angelina's score in two ways.
 
 `r bfcolor("Solutions:", "blue")`
 
 
 \
 
-**(f)** Retrieve Amy's and Alice's score, in that order.
+**(f)** Retrieve Brad's and Sandra's scores, in that order.
 
 `r bfcolor("Solutions:", "blue")`
 
 
 \
 
-**(g)** Retrieve the scores of everyone except Amy.
+**(g)** Retrieve the scores of everyone except John.
 
 `r bfcolor("Solutions:", "blue")`
 
