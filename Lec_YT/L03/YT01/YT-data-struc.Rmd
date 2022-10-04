@@ -1,0 +1,245 @@
+---
+title: "Your Turn : Data structures in `R`"
+author: "Your netid, last name, first name here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# 1. Matrices
+
+## Examples: Create and subset a matrix
+
+```{r}
+(x <- seq(-5, 5, 2))
+x_mat <- matrix(x, nrow=2, ncol=3) #by columns
+x_mat
+```
+
+```{r}
+dim(x_mat)
+```
+##
+```{r}
+colnames(x_mat) <- c("Col 1", "Col 2", "Col 3")  
+rownames(x_mat) <- c("Row 1", "Row 2")
+x_mat
+```
+```{r}
+x_mat[ , c("Col 1","Col 2")]
+```
+
+```{r }
+dimnames(x_mat)
+```
+
+
+## Creating a matrix by binding to rows or columns
+```{r}
+(r_mat <- rbind(c(-5, -1, 3), c(-3, 1, 5)))
+(c_mat <- cbind(c(-5, -3), c(-1, 1), c(3, 5)))
+```
+
+## Matrix subsetting
+
+- Using [ ] provide an  index to each dimension. 
+    - order in a matrix is given as [ row , col]
+
+```{r}
+(x <- matrix(1:4, nrow=2, ncol=2))
+x[1, 1]
+x[2, 1]
+```
+##
+**Omitting** an index returns all elements in that dimension
+```{r}
+x[ , 2]
+x[1, ]
+x[,-1]
+```
+
+##  YT01
+
+```{r}
+(x <- matrix(1:9, nrow=3, ncol=3))
+```
+
+##  YT02
+
+Create a $4\times 5$ matrix `mx` of integers 1 through 17 (inclusive).
+Print the matrix. 
+
+1. Subset `mx` to create the following matrix:
+```{r}
+#write your code here
+```
+
+2. Set all entries of `mx` greater than 10 to zero.
+
+```{r}
+#write your code here
+```
+
+
+
+
+ 
+
+
+
+# 2. Arrays
+
+## 1. Create an array
+
+```{r}
+A = array(data = 1:18, dim = c(3, 3, 2))
+```
+
+```{r}
+A
+dim(A)
+```
+
+## 2. Modify the array to include: 
+   a) columns names; 
+   b) row names;
+   c) layer names
+```{r}
+dimnames(A) = list(c("R1","R2","R3"),
+                   c("C1","C2","C3"),
+                   c("L1","L2"))
+```
+
+```{r}
+A
+```
+```{r}
+dimnames(A)
+```
+
+## 3. On your own: practice subsetting using [ ] and dim names 
+
+```{r}
+A[, "C1", "L1"]
+```
+
+
+## 4. `apply` function
+
+
+### 4a.  row sums for A
+```{r}
+apply(A, 1, sum)
+rowSums(A)
+```
+
+### 4b.  col sums for A
+```{r}
+# write your code here
+```
+
+### 4c. Sum of all  cells
+
+```{r}
+apply(A, c(1, 2), sum)
+```
+
+
+# 3. Factors
+
+## Example 1: Eye color
+```{r}
+eyes <- factor(x = c("blue", "green", "green"))
+eyes
+```
+
+
+```{r}
+eyes <- factor(x = c("blue", "green", "green"),
+               levels = c("blue", "brown", "green"))
+eyes
+```
+
+### What are the levels?
+```{r}
+levels(eyes) # extracting levels
+```
+
+### How many levels are there?
+```{r}
+nlevels(eyes)
+```
+### Produce a frequency distribution of the data.
+```{r}
+table(eyes)
+```
+
+### Produce a plot of the data.
+```{r}
+plot(eyes)
+```
+
+## Ordered factor :Two options in `R`
+
+### 1. `ordered()` function for ordinal data.
+```{r}
+eyes
+class(eyes)
+eyes <- ordered(eyes)
+eyes
+class(eyes)
+```
+
+
+### 2. `factor()` function with the argument `ordered = TRUE`
+```{r}
+ # Create ordered factor
+my_fac_ordered <- factor(c("c", "a", "b", "c", "a"), 
+                          levels = c("c", "a", "b"),
+                          ordered = TRUE)
+my_fac_ordered
+class(my_fac_ordered)
+```
+
+
+
+
+
+
+# 4. Logical
+
+```{r}
+?state
+# library(datasets) 
+```
+
+1. How many US states have an area less than 10,000 **OR** greater than 100,000 square miles?
+
+```{r}
+which( state.area < 10000 | state.area > 10000 )
+length(which( state.area < 10000 | state.area > 10000 ))
+```
+
+2. How many US states have an area less than 10,000 **AND** greater than 100,000 square miles?
+
+```{r}
+which( state.area < 10000 & state.area > 10000)
+length(which( state.area < 10000 & state.area > 10000))
+```
+

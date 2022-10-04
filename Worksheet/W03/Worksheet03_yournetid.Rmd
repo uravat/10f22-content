@@ -1,0 +1,273 @@
+---
+title: "PSTAT 10: Worksheet 3"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due on Canvas 30 mins after Section following lecture."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+params:
+  solution: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# Exercise 1: Matrices
+
+**(a)** Generate a 5 x 4 numeric matrix with elements 1 through 20
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(b)** Select the 3rd column of the matrix
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(c)** Select rows 2,3,4 of columns 1,2,3 of the matrix
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(d)** Add row names and column names to the matrix. 
+
+```{r}
+# Write your code here
+```
+
+
+
+**(e)** Extract the elements in column one by it's column name.
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 2: More matrix 
+
+**(a)** Create vectors: a = (1,2,4,5,6); b = (3,2,4,1,9); d = (7,5,5,6,4)
+
+`r bfcolor("Solutions:", "blue")` 
+
+```{r}
+# Write your code here
+```
+
+
+
+**(b)** Without using matrix function, write one line of code to generate a matrix which has rows given by vectors a, b, c in that order. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(c)** What is the dimension of the matrix you created in (b) above?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 3: Array
+
+```{r}
+aaa =  c(2,3,4,6)
+bbb = c(5,6,10,12,45)
+```
+
+**(a)** Using the above vectors, create an array of two 3 x 4 matrices.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(b)** Sum the rows 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(c)** Sum the columns
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+**(d)** Sum the cells
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 4: Factor
+
+**(a)** Create a factor with elements: male, female, female, male 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(b)** What are the levels?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(c)** How many levels are there?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(d)** Determine if  this is an ordered factor? Explain your reasoning after your code. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+# (Optional) Exercise : Review of Single Logical operator
+
+
+**(a)** Test whether 2 is less than 4
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(b)** Is 5 equal to 6?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(c)** Is 5+6<4?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+---
+
+# Exercise 5: Logicals 
+
+**(a)** In which package can we find datasets with information about US states?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+**(b)** How many US states have an area less than 10 000 square miles? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+**(c)** How many US states have an area greater than 100 000 square miles?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
