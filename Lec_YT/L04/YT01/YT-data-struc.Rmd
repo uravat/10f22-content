@@ -1,0 +1,183 @@
+---
+title: "Your Turn : Data structures in `R`"
+author: "Your netid, last name, first name here"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# 1. Lists
+
+## 1. Use this list: 
+```{r}
+# create a list using list() function in R
+a_list <- list(num = c(8, 9), 
+               log = TRUE,
+               cha = c("a", "b", "c"))
+```
+And the next two two sub setting commands. Do they return the same values?
+```{r}
+a_list["num"]
+```
+
+```{r}
+a_list$num
+```
+
+
+
+```{r}
+a_list[[1]]
+```
+
+## 2. Extracting objects and members/item:  [[ vs [ : know what you are doing
+
+```{r}
+a_list[[ c(1, 2) ]]
+```
+
+```{r}
+a_list[ c(1, 2) ]
+```
+
+```{r}
+# list is stored in the order it is requested
+a_list[ c(2, 1) ]
+```
+
+## 3. some more 
+
+```{r}
+named_list <- a_list
+named_list
+```
+
+
+```{r}
+unnamed_list <- list( c(8, 9), 
+               TRUE,
+               c("a", "b", "c"))
+unnamed_list
+```
+```{r error=TRUE}
+#Can't use $ to access unnamed list objects.
+unnamed_list$1
+```
+```{r}
+names(unnamed_list) <- c("name_num", "name_log", "name_char")
+unnamed_list
+```
+
+
+
+```{r}
+a_list
+```
+
+```{r}
+#updating list object values
+a_list$num[2] <- 10
+a_list["num"]
+```
+
+
+## 4. other functions
+
+```{r}
+length(a_list)
+```
+
+### vectorized functions
+
+```{r}
+vec <- c(-2, -1, 0, 1, 2)
+abs(vec)
+```
+
+```{r error=TRUE}
+lst <- list(-2, -1, 0, 1, 2)
+abs(lst)
+```
+Vectorized functions don't work with lists like they work with vectors, matrices, arrays.
+
+<!-- made this HW question
+```{r}
+# understand difference in <- and = 
+hw_score <- list(
+                  s1 <- runif(10, 50, 100),
+                  s2 = runif(10, 50, 100),
+                  s3 = runif(10, 50, 100))
+hw_score
+```
+
+--> 
+
+
+```{r}
+hw_score <- list(
+                  s1 = runif(10, 50, 100),
+                  s2 = runif(10, 50, 100),
+                  s3 = runif(10, 50, 100))
+hw_score
+```
+```{r error = TRUE}
+mean(hw_score)
+```
+
+
+```{r}
+hw_score$s1
+```
+
+```{r}
+mean(hw_score$s1)
+```
+
+On HW you will work more on this! 
+
+
+
+# 2. Data frame
+
+
+1. Create a data frame, check, extract, update
+
+```{r}
+df <- data.frame(x = 1:2, y = 3:4)
+df
+```
+
+```{r}
+typeof(df)
+```
+
+```{r}
+class(df)
+```
+
+```{r}
+is.data.frame(df)
+```
+```{r}
+df[ 1, 2]
+```
+```{r}
+df[ 1, 2] <- 10
+df
+```
