@@ -1,0 +1,443 @@
+---
+title: 'PSTAT 10: Homework 2'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Wednesday October 12"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F, message = F, warning = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+
+library(kableExtra)
+library(tidyverse)
+```
+
+`r bfcolor("Make sure you print relevant objects so that it is easy to spot whether you completed the exercise successfully or not. You won't get points if we can't verify this from your html file alone. Remove this paragraph, when you have satisfactorialy completed  all exercises and checked that the html file allows graders to verify your successful completion of exercises. Thank you! ", "red")`
+
+---
+
+# Instructions
+
+- Remember to always copy the necessary files to your working directory; never edit and/or knit the files directly in the `10f22-content` folder.
+
+- Rename your `.Rmd` file as `hw02-your-netid.Rmd`. For example, my Rmd script file will be `hw02-umaravat.Rmd`.
+
+- Make sure to include your identifying details in the Rmd file.
+
+- **Please keep in mind that there are 5 additional Multiple Choice questions that appear on Canvas**, in the submission portal for this homework. These questions are still considered a part of the homework, and you must complete them in order to be eligible to earn full points.
+
+- When submitting to Canvas, follow the provided submission instructions carefully.
+
+---
+
+# Exercises  
+
+
+## Exercise 0: YAML
+
+
+Update the YAML to reflect your own information (i.e. name, netid, etc.).
+
+
+
+\
+
+## Exercise 0.1: Installation of Requisite Package
+
+`r bfcolor("Before knitting this document", "red")`, you will need to install the package `kableExtra`.
+
+\
+
+---
+
+## Exercise 1: Thinking Critically About Data
+
+As a Data Scientist, you may find yourself needing to code data into `R` manually (as opposed to simply reading in a file). In such cases, it is important to think critically about the data, and exactly *how* you want to encode it! \
+
+As a simple example, we will consider the following dataset:
+
+| Name | Major | Midterm Score (in \%) | Final Letter Grade |
+|------|-------|---------------|--------------------|
+| Brad | Statistics | 99 | A+ |
+| Beckett | Statistics | 60 | B-
+| Samanthan | Engineering | 90 | A |
+| D'Vana | Biology |  99 | A+ |
+| Carol | Biology | 97 | A |
+
+We will work toward inputting it as a data frame, but will do so by carefully considering each variable separately. \
+
+\
+
+**(a)** What Data Type should we use to encode the names of the individuals in the dataset? _No coding necessary for this part._
+
+
+`r bfcolor("Solutions:", "blue")`
+
+Replace this line with your answer. 
+
+\
+
+**(b)** Now, create a vector called `name` that stores the names of the individuals in the dataset.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** What Data Type should we use to encode the majors of the individuals in the dataset? _No coding necessary for this part._
+
+
+`r bfcolor("Solutions:", "blue")`
+
+Replace this line with your answer. 
+
+\
+
+**(d)** Now, create a vector called `major` that stores the majors of the individuals in the dataset.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(e)** What Data Type should we use to encode the midterm scores of the individuals in the dataset? _No coding necessary for this part._
+
+
+`r bfcolor("Solutions:", "blue")`
+
+Replace this line with your answer. 
+
+\
+
+**(f)** Now, create a vector called `mt_scores` that stores the midterm scores of the individuals in the dataset.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(g)** What Data Type should we use to encode the final letter grades of the individuals in the dataset? _No coding necessary for this part._
+
+
+`r bfcolor("Solutions:", "blue")`
+
+Replace this line with your answer. 
+
+\
+
+**(h)** Now, create a vector called `final_grades` that stores the final letter grades of the individuals in the dataset.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(i)** Now, it's time to put everything together! Using the variables you created in the above parts, encode the full dataset into a data frame called `df_dataset`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(j)** Suppose that Brad has purple hair; Beckett, Samanthan, and Carol have black hair; and D'Vana has green hair. Add a new column to `df_dataset` called `hair_color` containing this new information. Print `df_dataset` to ensure the column has successfully been added.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+
+---
+
+
+# Exercise 2: Hairy Situ-eye-tion
+
+Consider the data in the following table:
+
+```{r, echo = F}
+tab <- data.frame(
+  C0 = c(rep("Hair Color", 3)),
+  C1 = c("BLACK", "BROWN", "BLONDE"),
+  C2 = c(32, 53, 03),
+  C3 = c(11, 50, 30),
+  C4 = c(10, 25, 05),
+  C5 = c(03, 15, 08)
+)
+
+colnames(tab) <- c("", "", "BROWN", "BLUE", "HAZEL", "GREEN")
+
+tab %>% 
+  kbl(align = "c", caption = "") %>%
+  add_header_above(c("Eye Color" = 6)) %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(bootstrap_options = c("bordered"), 
+                full_width = F,
+                position = "center",
+                latex_options = "hold_position") %>%
+  column_spec(1, border_left = T) %>%
+  column_spec(6, border_right = T) %>%
+  row_spec(0, bold = T, color = "blue") %>%
+  column_spec(2, bold = T, color = "blue") %>%
+  collapse_rows(columns = 1:2, valign = "middle")
+```
+
+
+**(a)** Construct a matrix using the data given in the table above, and assign it to the variable `hair_eye`. Fill in the matrix by rows.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** Add appropriate row names and column names 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+\
+
+**(c)** Determine how many people have blonde hair and blue eyes
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(d)** Sum row values, sum column values. _Hint:_ Check out the `rowSums` function in `R`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(e)** Remove the column of data containing the hair colors of people with blue eyes. (After doing so, `hair_eye` should have one fewer columns)
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+\
+
+
+**(f)** It is found that there was a mistake when the data was collected: of the individuals with green eyes, 5 of them had black hair, 20 of them had brown hair, and 10 of then had blonde hair. Update your matrix `hair_eye` to reflect the corrected information.
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+\
+
+
+---
+
+
+## Exercise 3: Homework *can* be Mean
+
+In PSTAT 3029 (which doesn't exist... yet), the 10 homework scores for 3 students (named "Student 1", "Student 2", and "Student 3") are given as:
+
+```{r}
+hw_score <- list(
+                  s1 = runif(10, 50, 100),
+                  s2 = runif(10, 50, 100),
+                  s3 = runif(10, 50, 100))
+hw_score
+```
+
+**(a)** Retrieve the exam scores of Student 2 in two ways
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** Describe the type of object returned by `hw_score[1]`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** Create a list `hw_score_average` that holds each students average hw score as its members. Name the averages as `ave_s1`, `ave_s2`, `ave_s3`. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(d)** What is the overall average hw score? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Exercise 4: Splitting Hairs... Again!
+
+Recall that in homework 1 we examined the `strsplit()` function. In this problem, we investigate it a bit further. Additionally, for this problem it is important you perform the parts in order.
+
+**(a)** Create a vector `x` and assign it the value `c("hair", "follicle")`. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+
+**(b)** What is the data type of `x`?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+\
+
+
+**(c)** Define `y <- strsplit(x, "i")`. What data structure does `x` possess?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(d)** What data structure does `y[[1]]` possess?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(e)** Use subsetting on `y` to write a single line of code that returns the string `"ha"`. Don't just print `"ha"`!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Exercise 5: More Palm-y Weather!
+
+Recall the `palm.csv` dataset from homework 1. \
+
+\
+
+**(a)** Copy the dataset from your HW01 `data` folder into a new folder (also called `data`) in your HW02 subdirectory. 
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+\
+
+
+**(b)** Load the data into your workspace, and store the resulting data in a variable called `palm_2`. 
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** Some of you noticed (on HW01) that there was no unique city block that contains the maximum number of King Palms. Run code to list **all** of the city blocks that contain the maximum number of King Palms represented in the dataset.
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+\
+
+**(d)** Do any city blocks contain more than 8 Foxtail Palms? **Answer this question in TWO ways, using two DIFFERENT lines of code.**
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+# Write your code here
+```
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
