@@ -1,0 +1,443 @@
+---
+title: "PSTAT 10: Lecture 5 : Basic Plotting"
+author: "Dr. Uma Ravat"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# Exploring a dataset
+
+## Warming up with the `starwars` dataset
+
+Let's look at the `starwars` data frame which is part of the  `tidyverse` library. 
+
+
+```{r loadlib, exercise=TRUE, exercise.eval = TRUE, message=FALSE , warning=FALSE}
+library(tidyverse) # load the tidyverse package
+```
+
+Remember that help files can be very useful! **Go ahead and access the help files for the `startwars` dataset by typing the appropriate command in the space below.** 
+_(The nice thing about this new lecture interface is that you should be able to run code from here directly, without having to go back into your Console or Scripts Panel!)_
+
+```{r starwars_help, exercise=TRUE, exercise.eval=FALSE}
+__replace this line with your code__
+```
+
+```{r starwars_help-solution}
+?starwars
+```
+
+
+###  Dataframe terminology
+
+- Each row is an **observation**
+- Each column is a **variable**
+
+```{r look_df,  exercise=TRUE, exercise.eval=FALSE}
+starwars
+```
+
+### Luke Skywalker
+
+
+![](images/luke-skywalker.png){width=70%}
+
+
+
+## What's in the Starwars data?
+
+- How many rows and columns does this dataset have?
+- What does each row represent?
+- What does each column represent?
+
+### Already saw `?starwars` 
+
+![](images/starwars-help.png){width=70%}
+
+but let's run a few more commands to find out
+
+### Take a `glimpse` at the data:
+
+
+```{r glimpse-df,  exercise=TRUE, exercise.eval=FALSE}
+glimpse(starwars) 
+```
+
+
+###  Some `R` Commands
+
+Let's try accessing different parts of the data using relevant `R` commands:
+
+```{r attr-df,  exercise=TRUE, exercise.eval=FALSE}
+nrow(starwars) # number of rows
+ncol(starwars) # number of columns
+dim(starwars)  # dimensions (row column)
+names(starwars)
+```
+
+## Exploratory data analysis
+
+### What is EDA?
+
+- Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics
+- Often, this is visual -- this is what we'll focus on first
+- But we might also calculate summary statistics (we'll do next)
+- and clean up data (update variables names, remove `NA`s, filter/subset data, clean up data(sub/gsub) or transform data at (or before) this stage in preparation for detailed statistical analysis/modeling (partly later but more in follow up courses :-( ) )
+
+
+## Mass vs. height
+
+- How would you describe the relationship between mass and height of Starwars characters?
+
+Plot it and describe
+
+```{r plot-ht-mass,  exercise=TRUE, exercise.eval=FALSE}
+plot(starwars$height, starwars$mass)
+```
+
+`r bfcolor("REMEMBER:", "red")` Always add a title, and label your axes!
+
+```{r, plot-label,  exercise=TRUE, exercise.eval=FALSE}
+plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)")
+```
+
+
+## Your Turn
+
+- What other variables would help us understand data points that don't follow the overall trend?
+- Who is the not so tall but really chubby character?
+    - many ways to subset `starwars` dataset to find this out!
+
+`r bfcolor("Your Turn:", "blue")` Time for you to get your hands dirty!
+
+**(a)** Create a variable `sort_mass` that contains the masses of the individuals in the `starwars` dataset, sorted in descending order.
+
+```{r yt1_a, exercise=TRUE, exercise.eval=FALSE}
+__replace this line with your code__
+```
+
+```{r yt1_a-solution}
+sort_mass <- sort(starwars$mass, decreasing = TRUE)
+```
+
+
+\
+
+**(b)** To work with `sort_mass` you need to know the type data structure that is storing `sort_mass`. How will you determine that? 
+
+```{r yt1_b, exercise=TRUE, exercise.eval=FALSE}
+__replace this line with your code__
+```
+
+```{r yt1_b-solution}
+class(sort_mass)
+```
+
+
+
+\
+
+**(c)** How heavy is the heaviest individual?
+
+```{r yt1_c, exercise=TRUE, exercise.eval=FALSE}
+__replace this line with your code__
+```
+
+```{r yt1_c-solution}
+heaviest <- sort_mass[1]
+heaviest
+# answer is 1358
+```
+
+
+\
+
+**(d)** What is the name of the character that is the heaviest?
+
+```{r yt1_d, exercise=TRUE, exercise.eval=FALSE}
+__replace this line with your code__
+```
+
+```{r yt1_d-solution}
+which(starwars$mass == 1358)
+starwars[16, ]
+starwars[which(starwars$mass == 1358), ]
+```
+
+It's Jabba
+
+## Who's Jabba!
+
+![](images/jabba.png){width=70%}
+
+
+### Let's add Jabba to the plot
+
+```{r plot-add-jabba,exercise=TRUE, exercise.eval=FALSE }
+plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", 
+     points(175, 1358, pch = 3, col = "red",cex = 2))
+
+```
+
+### Adding Jabba in another way
+
+```{r plot-add-jabba2,exercise=TRUE, exercise.eval=FALSE }
+plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", 
+     points(starwars[16,2], 
+            starwars[16,3], 
+            pch = 3, col = "red",cex = 2))
+    text(x= 200, y = 1350, labels = "Jabba!")
+
+```
+
+## Basic plotting 
+
+### Parameters taken by the function `plot()`
+
+- `type` : points, lines (`type = "l"`)
+- `col` : takes values as integer from 1 to 8 (`col = 6`) or strings (`col = "violetred2")
+                `colors()` gives all available color strings (about 650 of them!)
+- `pch` : plotting character or symbol : values in 0:25
+- `cex` : character(or symbol) expansion: size of points
+- `lwd` : line width : line thickness 0.5, 1, 2 etc
+- `lty` : line type (0=blank, 1=solid (default), 2=dashed, 3=dotted, 4=dotdash, 5=longdash, 6=twodash)
+
+Play with these parameters to figure out what they do!
+
+###  Plot parameter: `col`, `pch`
+
+Play with these parameters to figure out what they do!
+
+```{r plot-col-pch, exercise=TRUE, exercise.eval=FALSE}
+plot(x = 1:26, y = 1:26, col = 1:8, pch = 0:25)
+```
+
+### Plot parameter: `type = "l"`, `lty`, `lwd`
+
+Play with these parameters to figure out what they do!
+
+```{r plot-type, exercise=TRUE, exercise.eval=FALSE}
+plot(x = 1:26, y = 1:26, col = 4, type = "l", lty = 1, lwd = 2)
+```
+
+### Plot parameter: `type` can be "l"(line), "b"(both), "p"(point), "n"(none) 
+
+```{r plot-type-b, exercise=TRUE, exercise.eval=FALSE}
+plot(x = 1:8, y = 1:8, col = "red", pch = 0, type = "b")
+```
+
+###  Plot parameter: `pch`
+
+Play with these parameters to figure out what they do!
+
+```{r plot-pch, exercise=TRUE, exercise.eval=FALSE}
+plot(x = 1:8, y = 1:8, col = "red", pch = 0)
+```
+
+### Plot parameter: xlim, ylim 
+
+```{r plot-withoutlim, exercise=TRUE, exercise.eval=FALSE}
+plot(starwars$height, starwars$mass, 
+     main = "Mass vs. height of Starwars characters",
+     xlab = "Height (cm)", ylab="Weight (kg)", type = "p")
+```
+
+**Zoom-in**
+
+```{r plot-lim, exercise=TRUE, exercise.eval=FALSE}
+plot(starwars$height, starwars$mass, 
+     main = "Mass vs. height of Starwars characters",
+     xlab = "Height (cm)", ylab="Weight (kg)", type = "p", 
+     xlim=c(150,200),ylim=c(0,150))
+```
+
+## Your Turn: Play Around!
+
+Below, you will find the code used to generate the scatterplot of mass vs. height of the Star Wars characters. Go ahead and play around with the various parameter values to produce a plot you think looks nice!
+
+```{r yt2, exercise=TRUE, exercise.eval=FALSE}
+plot(starwars$height, starwars$mass, 
+     main = "Mass vs. height of Starwars characters",
+     xlab = "Height (cm)", ylab="Weight (kg)", type = "p", 
+     xlim=c(150,200),ylim=c(0,150))
+```
+
+
+##  Visualizing data
+
+##  Visualizing numerical data : Histograms
+
+```{r hist1, exercise=TRUE, exercise.eval=FALSE}
+hist(starwars$height,
+     main = "Histogram of Heights of Starwars characters",
+     xlab = "Height")
+```
+
+### Histogrmas : breaks
+
+```{r hist2, exercise=TRUE, exercise.eval=FALSE}
+hist(starwars$height,  breaks = 20,
+     main = "Histogram of Heights of Starwars characters",
+     xlab = "Height")
+```
+
+### Histogrmas : breaks
+
+```{r hist3, exercise=TRUE, exercise.eval=FALSE}
+hist(starwars$height,  breaks = 50,
+     main = "Histogram of Heights of Starwars characters",
+     xlab = "Height")
+```
+
+##  Summarizing numerical data : 5 number summary
+
+```{r}
+head(starwars)
+```
+
+**5 number summary:**
+
+- Min, 1st quartile (lower quarter(25\%) of data), Median, 3rd quartile (upper quarter(25\%) of data) , Max
+
+```{r 5num, exercise=TRUE, exercise.eval=FALSE}
+any(is.na(starwars$height))
+x <- na.omit(starwars$height) 
+c(min(x), quantile(x,0.25), median(x), quantile(x,0.75), max(x))
+summary(x)
+```
+ 
+
+
+###  Visualizing numerical data : box plot
+
+```{r boxplot, exercise=TRUE, exercise.eval=FALSE}
+boxplot(starwars$height, 
+        main ="Boxplot of Heights of Starwars characters",
+     xlab = "Height", ylab = "cm")
+```
+
+ 
+
+##  Summarizing categorical data : table
+
+```{r table, exercise=TRUE, exercise.eval=FALSE}
+gender_tbl <- table(starwars$gender )
+gender_tbl
+```
+
+### Visualising categorical data : Bar plots
+
+```{r barplot, exercise=TRUE, exercise.eval=FALSE}
+barplot(table(starwars$gender ),
+        main = "Barplot of Gender of Starwars characters",
+     xlab = "Gender", ylab = "Count")
+
+```
+
+
+
+## Side-by-side Boxplots
+
+Boxplots use the `y ~ x` notation. In R, this construct is called a `formula`
+
+- Median, percentiles, quartiles, IQR, out liers
+
+
+
+```{r sideboxplot, exercise=TRUE, exercise.eval=FALSE}
+boxplot(height ~ gender, starwars, 
+        xlab = "Gender", ylab = "height (cm)" )
+```
+
+
+
+## Building Plots incrementally
+
+It is common for complex plots to start with an *empty* plot
+and layer stuff on top.
+```{r plota, exercise=TRUE, exercise.eval=FALSE}
+with(starwars, plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", type = "n"))
+```
+
+```{r plotb, exercise=TRUE, exercise.eval=FALSE}
+with(starwars, plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", type = "n"))
+with(filter(starwars, sex != "female"), points(height, mass, col="red", pch=19))
+```
+
+```{r plotc, exercise=TRUE, exercise.eval=FALSE}
+with(starwars, plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", type = "n"))
+with(filter(starwars, sex != "female"), points(height, mass, col="red", pch=19))
+with(filter(starwars, sex == "female"), points(height, mass, col="blue", pch=1))
+``` 
+
+```{r plotd, exercise=TRUE, exercise.eval=FALSE}
+with(starwars, plot(starwars$height, starwars$mass, 
+     main="Mass vs. height of Starwars characters",
+     xlab="Height (cm)", ylab="Weight (kg)", type = "n"))
+with(filter(starwars, sex != "female"), points(height, mass, col="red", pch=19))
+with(filter(starwars, sex == "female"), points(height, mass, col="blue", pch=1))
+legend("topright", pch = c(1, 19), col = c("blue", "red"),
+       legend = c("female", "Othes"))
+```     
+
+## Importing and exporting data
+
+The rest of the work here needs to be done in the console or run from the Rmd document of this tutorial
+
+- Keep specified columns using `subset`
+
+Keep only name, height, mass, gender from  `starwars` complete cases
+
+```{r subset1}
+df_1 <- na.omit(subset(starwars, select = c(name, height, mass, gender)))
+names(df_1)
+```
+
+Next, set working directory to source file location. This is so that we know where files will be saved. 
+
+```{r export}
+#getwd() # gets' the working directory where files will be saved
+write.csv(df_1, "./data/df_1.csv" )
+```
+
+- Remove all columns except name, height, mass, gender from complete cases of `starwars` and save the new dataframe to a file named df_2
+
+```{r export2}
+#-your-code-here
+```
+
+- import the saved data frame and inspect
+
+```{r import}
+df_1_new <- read.csv("./data/df_1.csv")
+#df_1_new
+```
+
+
