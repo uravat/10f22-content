@@ -1,0 +1,137 @@
+---
+title: "PSTAT 10: Worksheet 5"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due on Canvas 30 mins after Section following lecture."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+params:
+  solution: TRUE
+  release: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+# Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+---
+
+# Exercise 1: 
+
+
+Take a look at the `starwars` dataset in three  ways. For plots in this exercise, do something other than what we did in lecture. 
+
+**(a)** Use `glimpse` and  `str()` function and look at the help file. What difference do you notice between information given by these three functions. Make sure to load any packages you will need
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+
+
+**(b)** Use `tail`, `head` with appropriate arguments to look at the first three and last three rows respectively. Use the help for these functions if needed
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+**(c)** What are all the column names?
+
+`r bfcolor("Solutions:", "blue")`
+
+
+```{r}
+# Your Code here
+```
+
+
+
+**(d)** How much data do we have? Find it in two ways. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+
+**(e)** Pick a single numerical variable and make a histogram of it.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+**(f)** Pick two numerical variables from the data set and make a scatter plot. You may need to remove `NA` values. Describe the relation, if any, between these two variables. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+
+
+**(g)** Pick a single categorical variable from the data set and make a bar plot of its distribution. You may need to omit `NA` values.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+**(h)** Pick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.
+
+ `r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Your Code here
+```
+
+---
+
+# Last exercise : Reflecting
+
+Write at least one thing you struggled with but figured out 
+
+- Gain 1
+- Gain 2
+- Gain 3
+
+Write at least one thing you still have a question about
+
+- question 1
+- question 2
+- question 3
+
+Write at least one way in which you will resolve this question
+
+- resolution 1
+- resolution 2
+- resolution 3
+
+
