@@ -424,7 +424,7 @@ Next, set working directory to source file location. This is so that we know whe
 
 ```{r export}
 #getwd() # gets' the working directory where files will be saved
-write.csv(df_1, "./data/df_1.csv" )
+#write.csv(df_1, "./data/df_1.csv" )
 ```
 
 - Remove all columns except name, height, mass, gender from complete cases of `starwars` and save the new dataframe to a file named df_2
@@ -436,7 +436,7 @@ write.csv(df_1, "./data/df_1.csv" )
 - import the saved data frame and inspect
 
 ```{r import}
-df_1_new <- read.csv("./data/df_1.csv")
+#df_1_new <- read.csv("./data/df_1.csv")
 #df_1_new
 ```
 
