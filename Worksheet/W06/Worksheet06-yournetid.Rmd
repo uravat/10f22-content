@@ -1,0 +1,146 @@
+---
+title: "PSTAT 10: Worksheet 6"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due on Canvas 30 mins after Section following lecture."
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# Exercises
+
+## Exercise 1: Feeling Loop-y
+
+![](https://i.kym-cdn.com/photos/images/original/001/393/656/da7.jpg)
+
+**(a)** `repeat` loops
+
+A [repeat loop](https://www.tutorialspoint.com/r/r_repeat_loop.htm) executes a statement or sequence of statements multiple times until a stop condition is met. \
+
+**`SYNTAX:`**
+
+```{r, eval = F}
+repeat {
+  statements
+  if(condition) {
+    break
+  }
+}
+```
+
+**Exercise:** Write a `repeat` loop that prints out the integers from 1 through 3, inclusive.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+\
+
+**(b)** `while` loops
+
+A [while loop](https://www.tutorialspoint.com/r/r_while_loop.htm) repeats a statement or sequence of statements while a given condition is true. It should be noted that `R` tests the condition **before** executing the loop. \
+
+**`SYNTAX:`**
+
+```{r, eval = F}
+while (test expression)
+  {
+    statement
+  }
+```
+
+The `r bfcolor("break statement:", "blue")` is evaluated, and the body of the loop is entered if the result is `TRUE`. \
+
+
+**Exercise (i):** Write a `while` loop to print the numbers 1 - 5. (From here on out, assume that number ranges are inclusive, unless otherwise specified.)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+\
+
+**Exercise (ii):** Write a `while` loop to compute the square of numbers 1 - 6.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Exercise 2: `for` loop
+
+Write a `for` loop that iterates over the numbers 1 through 7 and prints the cube of each number using `print()`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+
+## Exercise 3: You-Cube
+
+Write a function that returns the cube of a number. Also test your function on two different inputs.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Exercise 4: Dice-y Situation
+
+Write a function to simulate rolling two fair, six-sided dice, returning the sum scored. Also test your function on two different inputs. **Hint:** Remember the `runif()` function.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
