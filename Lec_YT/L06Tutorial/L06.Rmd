@@ -1,0 +1,572 @@
+---
+title: "PSTAT 10: Lecture 6 : Conditionals and functions in `R`"
+author: "Dr. Uma Ravat"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+
+## Motivation for Conditionals and functions
+
+\[
+|x| = \left\{ \begin{array}{cl} x & \mathrm{if}~x\geq 0 \\
+-x &\mathrm{if}~ x < 0\end{array}\right.
+\]  
+
+To code the function or plot it's graph succinctly we need
+
+1. **Conditionals :** "If x>0 do this... otherwise do that..." 
+2. **Iterators/loops :** "Repeat this action several times"
+3. **user-defined functions** 
+
+1 and 2 are called control structures, since they control how code is executed by the computer. 
+
+User defined functions may need control flow structures along with other lines of sequential code. 
+
+##  Conditionals: If and if-else
+
+![life-if-then](images/life-if-then.png){width=20%}
+![life-if-then1](images/life-if-then1.png){width=20%}
+
+
+**Syntax: **
+
+- An `if` statement can be followed by an optional `else` statement
+
+```{r, eval = F}
+if (test expression){
+  statement
+}
+```
+
+- If the test expression is `TRUE`, the statement is executed.
+
+![r-if-statement flow chart](images/r-if-statement.jpg){width=30%}
+
+
+```{r, eval = F}
+if (test expression1) {
+  statement 1
+} else { 
+  statement 2
+}
+```
+
+![r-if-else-statement flow chart ](images/r-if-else-statement.jpg){width=30%}
+
+### **Exercise**
+
+1. Run the code chunk and check that the output is correct based on the value of `x`. 
+2. Change the value `x` to test the other condition. 
+
+```{r ifelse1, exercise = TRUE, exercise.eval=FALSE}
+x <- -5
+if(x > 0){
+print("Non-negative number")
+} else {
+print("Negative number")
+}
+```
+
+
+### **Exercise** A simple conditional 
+
+1. Assign $x$ a numerical value you choose
+2. Write code that prints `x` if `$x \geq 0$ otherwise it prints `-x`
+3. Test this conditional by changing the value you assign to `x`
+4. See what happens if you change the position of the braces to the previous/next line.
+5. Alter spacing at differnt places in the code and see what happens. You can press reset if you need to go back to the original.  
+6. Remember henceforth that `R` is picky about the syntax. And remember to be nice to yourself as this is often a source of frustration for beginner programmers. 
+
+```{r ifelse-simple, exercise = TRUE, exercise.eval=FALSE}
+
+```
+
+```{r ifelse-simple-solution}
+x <- 5
+if (x >= 0) {
+  x
+} else { # this needs to be on one line. 
+  -x
+}
+```
+
+### Good to know: One-line actions don't need braces!
+```{r ifelse-oneline, exercise = TRUE, exercise.eval=FALSE}
+x <- 5
+if (x >= 0) x else -x
+```
+
+### nested if()
+
+`if` can *nest* arbitrarily deeply but can get **UGLY**
+
+### Example: 
+
+```{r nestedif, exercise = TRUE, exercise.eval=FALSE}
+
+x <- 10
+if (x^2 < 1) {
+  x^2
+} else {
+  if (x >= 0) {
+    2*x-1
+  } else {
+     -2*x-1
+  }
+}
+```
+
+For practice, 
+
+1. try changing the values assigned to `x` and check that you understand how control flows in this code. 
+2. Given a particular output value, can you deduce what value `x` must have? Explain why or why not? 
+
+## ifelse()
+
+```{r, eval = F}
+ifelse(test expression, ifTRUE, ifFALSE)
+```
+
+1st argument is a logical test expression, then pick from the 2nd or 3rd vector arguments depending on logical test expression `TRUE` or `FALSE`
+
+### **Exercise**
+
+1. Run the following code and see what happens. Make sure you understand how it is working
+2. Change the value of x so that the logical test expression is FALSE and see what happens.
+3. Let `x <- 0:2`. Does the code run as expected? What would you call this `ifelse()` compared to the one in 1, above?
+
+```{r ifelse2, exercise = TRUE, exercise.eval=FALSE}
+x <- 2
+ifelse(x^2 > 1, 2*abs(x)-1, x^2)
+```
+
+### Vectorized conditions ifelse()
+
+**Exercise**
+
+1. Predict the output of the following code and see what happens by running it. Make sure you understand how it is working
+2. Change the value of x or the logical test expression and verify it works as expected.
+
+
+```{r ifelse3, exercise = TRUE, exercise.eval=FALSE}
+x <- 1:10
+
+ifelse(x < 5 | x > 8, x, 0)
+
+ifelse(x < 3 | x > 9, x, "Another value")
+
+x <- c(10:2)
+ifelse( x == 5 | x > 8, "I love PSTAT 10", "I love PSTAT" )
+```
+
+## Control structures: Iteration/looping: 
+
+![ ](images/loop-in-life.png){width=40%}
+![ ](images/loop-in-life1.png){width=50%}
+
+
+- Loops are used when we need to execute a block of code several times.
+- Statements are executed sequentially. The first statement in a function is executed first, followed by the second, and so on.
+- A loop statement allows us to execute a statements multiple times.
+
+###  Loops in `R`
+
+
+- [for loop](https://www.tutorialspoint.com/r/r_for_loop.htm) Executes a statement or sequence of statements multiple times. Tests the condition at the **end** of the loop.
+
+- [while loop](https://www.tutorialspoint.com/r/r_while_loop.htm) Repeats a statement or sequence of statements while a
+given condition is true. Tests the condition **before** executing the loop.
+
+- [repeat loop](https://www.tutorialspoint.com/r/r_repeat_loop.htm) Executes a statement or sequence of statements multiple
+times until a stop condition is met. 
+
+## For Loops
+
+**SYNTAX**
+
+```{r, eval = F}
+for (counter in counter-vector)
+  {
+    statements #body of for loop
+  }
+```
+
+
+### Example
+
+```{r for-loop,  exercise = TRUE, exercise.eval=FALSE}
+table.of.logarithms <- vector(length=10, mode="numeric") #empty/null vector
+table.of.logarithms 
+
+for (i in 1:length(table.of.logarithms)) {
+  table.of.logarithms[i] <- log(i)
+}
+
+names(table.of.logarithms) <- 1:length(table.of.logarithms)
+table.of.logarithms
+```
+
+### Tracing through the for loop is useful
+
+| counter: `i` | `table.of.logarithms[i]` |
+|:---:|:-------:|
+| 1 | log(1) |
+| 2 | log(2) |
+| 3 | log(3) |
+| ... | ... | 
+| 10 | log(10) |
+
+
+`for` increments a **counter** (here `i`) along a vector (here `1:length(table.of.logarithms)`) and **loops through** the **body** until it runs through the counter-vector
+
+"**iterates over** the counter-vector"
+
+Note, there is a better way to do this job!
+
+The body can contain just about anything, including:
+
+- if() clauses
+- other for() loops (nested iteration)
+
+- FOR loops are not limited to numeric vectors in the counter vector. We can pass character vectors, logical vectors or expressions
+
+##
+
+![ ](images/loop-humor-loop.jpg){width=50%}
+
+### Avoiding iteration: Vectorized arithmetic
+
+**Add 2 vectors**
+
+1. using iteration 
+
+```{r for-loop4,  exercise = TRUE, exercise.eval=FALSE}
+a <- 1:5
+b <- 11:15
+c <- vector(length = length(a))
+for (i in 1:length(a)) {  c[i] <- a[i] + b[i]  }
+```
+
+2. using vectorization 
+
+```{r vectorize-sum,  exercise = TRUE, exercise.eval=FALSE}
+a <- 1:5
+b <- 11:15
+a+b
+```
+
+### Modulus operator
+
+```{r mod2, exercise = TRUE, exercise.eval=FALSE}
+Y <- 7
+Y %% 3 # modulus operator
+```
+
+### Exercise 
+
+1. Fill in the blanks so that the code counts the even numbers in a vector `x`.
+
+```{r for-loop-2, exercise = TRUE, exercise.eval=FALSE}
+
+x <- c(6, 5, 3, 9, 8, 11, 6)
+count <- 0 # initialize
+for (i in ____)
+  {
+    if (i %% 2 == ____)
+      count <- ____ + 1
+  }
+print(count)
+```
+
+```{r for-loop-2-solution}
+
+x <- c(6, 5, 3, 9, 8, 11, 6)
+count <- 0
+for (i in x)
+  {
+    if (i %% 2 == 0)
+      count <- count + 1
+  }
+print(count)
+```
+2. Trace through the for loop to verify the output
+
+### Exercise 
+
+1. How many odd numbers and how many even numbers are there in a given vector?
+
+```{r for-loop-3, exercise = TRUE, exercise.eval=FALSE}
+
+x <- c(6, 5, 3, 9, 8, 11, 6)
+count1 <- 0 # evens
+count2 <- 0 # odds
+for (i in ____) {
+  if(____ %% 2 == 0)
+    count1 <- ____ + 1
+  else count2 <- ____ + 1
+}
+
+print(paste("Number of even numbers is ", count1))
+print(paste("Number of odd numbers is ", count2))
+```
+
+```{r for-loop-3-solution }
+
+x <- c(6, 5, 3, 9, 8, 11, 6)
+count1 <- 0 # evens
+count2 <- 0 # odds
+for (i in x) {
+  if(i %% 2 == 0)
+    count1 <- count1 + 1
+  else count2 <- count2 + 1
+}
+
+print(paste("Number of even numbers is ", count1))
+print(paste("Number of odd numbers is ", count2))
+```
+2. Trace through the for loop to verify the output
+
+
+### Exercise:
+
+**Given:**
+```{r, eval = F}
+x <- 1
+y <- 10
+i <- c(1:5)
+```
+
+Write a `for` loop that increments `x` by 2 and decreases `y` by 1, for each `i`.
+
+- `i` = 1 
+    - Current Values: `x` = 1, `y` = 10 
+    - New Values: `x` = 3, `y` = 9
+- `i` = 2 
+    - Current Values: `x` = 3, `y` = 9 
+    - New Values: `x` = 5, `y` = 8
+- ... and so on
+
+
+```{r for-loop-4, exercise = TRUE, exercise.eval=FALSE }
+x <- 1
+y <- 10
+i <- c(1 : 5)
+
+# your code here
+```
+
+
+```{r for-loop-4-solution }
+x <- 1
+y <- 10
+i <- c(1 : 5)
+
+for(j in i){
+  x <- x + 2
+  y <- y - 1
+}
+
+x
+y
+```
+
+##  Recall 
+
+> To understand computations in R, two slogans are helpful:
+
+>   Everything that exists is an object.
+
+>   Everything that happens is a function call.
+
+> — John Chambers
+
+\Large Even a **function** is an **object**
+
+**Functions** are (most often) verbs, followed by what they will be applied to in parentheses
+
+
+## Functions in `R`
+
+**SYNTAX:**
+
+```{r, eval = F}
+function_name <- function(arg1, arg2, ...)
+  {
+    code that does something
+    return(object)
+  }
+```
+
+1. **function Name:** choose a name for your function
+2.  **arguments** `arg1`, `arg2`, ...
+    - An argument is a placeholder
+    - When a function is called or invoked, you pass a value to an argument. 
+3. **function body:** Write code that does something
+4.  **return** or **print**: The result
+
+
+### Exercise
+
+Write a function to convert fahrenheit to centigrade. 
+
+Call (or invoke) the function with a fahrenheit temperature of 82. (Test the function with input 82.)
+
+
+```{r function, exercise = TRUE, exercise.eval=FALSE}
+fahrenheit_to_centigrade <- function( temp_F ) {
+  temp_C <- ((temp_F - 32) * (5/9))
+  return(temp_C)
+}
+
+fahrenheit_to_centigrade(82)
+```
+
+
+
+### Exercise:
+
+Create a function to print squares of numbers in sequence.
+Call the function supplying 6 as an argument.
+
+
+```{r function2, exercise = TRUE, exercise.eval=FALSE}
+
+```
+
+```{r function2-solution}
+square_function <- function(a) {
+  for(i in 1:a) {
+    b <- i^2
+    print(b)
+  }
+}
+
+DoNotCopyPasteRunBlindly_function_InsteadThinkTypeCheckErrorsToLearnProgramming(6)
+```
+
+### What should be a function?
+
+- Things you're going to re-run, especially if it will be re-run with changes
+- Chunks of code  which are small parts of bigger analyses
+- Chunks which are very similar to other chunks
+
+
+
+## Some more iteration 
+
+**While Loop**
+
+**SYTAX:**
+
+```{r, eval = F}
+while (test expression)
+  {
+    statement
+  }
+```
+
+- `test expression` is evaluated, test expression is evaluated, and the body of the loop is entered if the result is `TRUE`.
+
+
+### Exercise
+
+1. Write a while loop to print the numbers 1-3 
+
+
+```{r whileloop1, exercise = TRUE, exercise.eval=FALSE}
+
+```
+
+```{r whileloop1-solution}
+i <- 1
+while(i < 4) {
+  print(i)
+  i = i + 1
+}
+```
+
+
+
+
+## Time for some programming humor!
+
+![](images/while-humor-infinite-while-loop.jpg){width=40%}
+
+
+![](images/while-humor-while-loops.jpg){width=40%}
+
+
+## for() vs. while()
+
+for() is better when the number of times to repeat (values to iterate over) is
+clear in advance
+
+while() is better when you can recognize when to stop once you're there, even if you can't guess it to begin with
+
+Every for() could be replaced with a while() 
+<small>Exercise: show this</small>
+
+##  Repeat Loop
+
+Executes the same code repeatedly until a stop condition is met.
+
+**SYNTAX**
+
+```{r, eval = F}
+repeat {
+  statements
+  if(condition) {
+    break
+  }
+}
+```
+
+- \textcolor{blue}{\textbf{break statement:}} Terminates the **repeat loop** and transfers execution to the statement immediately following the loop.
+
+
+### Exercise
+
+1. Run the code below. Describe to the person sitting next to you the logic of this code. 
+2. Ask the person sitting next to you to modify the code to do something else but similar. Verify that the way they changed the code makes it work the way you want. 
+3. Repeat 2. With actions reversed between the two of you. 
+
+```{r repeat-loop, exercise = TRUE, exercise.eval=FALSE}
+x <- 1 # initialize x
+
+repeat {
+  print(x)
+  x = x+1
+  
+  if (x == 4){
+    break
+  }
+}
+```
+
+## Congratulations!
+
+This completes the first part of the course
+
+An Introduction to R programming for Data science
+
+Next we will look at 
+
+Introductory Probability and Statistics in R. 
+
+
