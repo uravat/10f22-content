@@ -1,0 +1,248 @@
+---
+title: 'PSTAT 10: Homework 3'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Week 4 Wednesday October 19"
+output:
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F, message = F, warning = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+
+library(kableExtra)
+library(tidyverse)
+```
+
+`r bfcolor("Make sure you print relevant objects so that it is easy to spot whether you completed the exercise successfully or not. You won't get points if we can't verify this from your html file alone. Remove this paragraph, when you have satisfactorialy completed  all exercises and checked that the html file allows graders to verify your successful completion of exercises. Thank you! ", "red")`
+
+---
+
+# Instructions
+
+- Remember to always copy the necessary files to your working directory; never edit and/or knit the files directly in the `10f22-content` folder.
+
+- Rename your `.Rmd` file as `hw03-your-netid.Rmd`. For example, my Rmd script file will be `hw03-umaravat.Rmd`.
+
+- Make sure to include your identifying details in the Rmd file.
+
+- **Please keep in mind that there are 5 additional Multiple Choice questions that appear on Canvas**, in the submission portal for this homework. These questions are still considered a part of the homework, and you must complete them in order to be eligible to earn full points.
+
+- When submitting to Canvas, follow the provided submission instructions carefully.
+
+---
+
+## Exercise 1: Signing Off
+
+In mathematics, the so-called **sign** function is defined as follows:
+$$ \mathrm{sgn}(x) = \begin{cases} +1 & \text{if } x > 0 \\ 0 & \text{if } x = 0 \\ -1 & \text{if } x < 0 \\ \end{cases} $$
+So, for example, $\mathrm{sgn}(-2039) = -1$ and $\mathrm{sgn}(\pi) = 1$. 
+
+\
+
+**(a)** There is no built-in function in `R` that computes the sign of a number. Let's fix that! Write a function called `sgn()` that computes the sign of a number `x`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** Test that your `sgn()` function from part (a) works by calling it on three different numbers.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** Look up the `Vectorize()` function in `R`. Describe (in words) what it does. _No Coding Required for this part._
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line of text with your description.**
+
+\
+
+**(d)** Now, create a vectorized version of your `sgn()` function. Call this new function `sgn_vec`, and check that `sgn_vec(c(-2, 0, 2))` returns `-1 0 1`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+
+---
+
+## Exercise 2: Determining Divisibility
+
+**(a)** Recall the modulo operator in `R`, `%%`. In words, `x %% y` computes the remainder when `x` is divided by `y`; for example, `3 %% 2` returns `1`, since there is a remainder of $1$ when $3$ is divided by 2 ($3 = 1 \cdot 2 + \boxed{1}$). **Look up the help file for `%%`.** In case the usual way we call for help isn't working, take a look at this post: https://stat.ethz.ch/pipermail/r-help/2011-July/283608.html
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** The modulo operator is very useful for determining divisibility. What is true of `x %% y` if `x` is divisible by `y`? _No coding required for this question_.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line of text with your answer** 
+
+`x %% y` must be 0 if `x` is divisible by `y`.
+
+\
+
+**(c)** In `R`, we can set default values for variables in user-defined functions in the following way:
+```{r, eval = F}
+<fnt. name> <- function(x = <default value>) {
+  <code>
+}
+```
+For example, if the function `foo()` is defined as:
+```{r, eval = F}
+foo <- function(y = 4) {
+  <code>
+}
+```
+then the variable `y` has a default value of 4. Give an example of a built-in function in `R` that has one or more variables with default values.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line of text with your answer** 
+
+\
+
+
+**(d)** Now, write a function `is_divisible_by()` that takes in two arguments `x` and `y` that returns a value of `TRUE` if `x` is divisible by `y` and returns a value of `FALSE` if `x` is not divisible by `y`. For example, `is_divisible_by(4, 2)` should return `TRUE` whereas `is_divisible_by(3, 2)` should return `FALSE`. **Set the default value of `y` to be 2**, and check that `is_divisible_by(4)` returns `TRUE`. Make sure to test your function on several (at least 3) different inputs!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(e)** Write a function `is_even()` that checks whether a given number `x` is even or not. In your definition of `is_even()`, be sure to use `is_divisible_by()`. **Hint:** Your default value in part (d) should help save you a lot of work for this part! Test your function on at least 2 different outputs.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+
+---
+
+## Exercise 3: Loopty-Loop
+
+We'd like to use loops to count the number of multiples of three between 1 and 100. For this exercise, you can (if you like) use your `is_divisible_by()` function from Exercise 2 above (but you do not need to). We will do this in three ways: \
+
+**(a)** Write a `for` loop to count the number of multiples in the vector `1:100`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** Write a `while` loop to count the number of multiples in the vector `1:100`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** Write a `repeat` loop to count the number of multiples in the vector `1:100`. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
+
+## Exercise 4: Vroom Vroom
+
+Using the `mtcars` data frame, and remembering to include axis labels and meaningful titles (and legends, wherever necessary), \
+
+**(a)** Plot Miles/(US) gallon versus Rear axle ratio using the `plot()` function. As a note: the language we use in Data Science is to say "plot `y` vs `x`," where `y` is on the $y-$axis and `x` is on the $x-$axis. Use a different plotting character (`pch` value) than the default.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(b)** Construct a barplot of the number of forward gears. Remember that you may need to use the `table()` function in conjunction with the `barplot()` function to be able to produce a meaningful plot.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(c)** Write code to return a numeric summary of the mtcars dataset, and interpret your results.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(d)** Construct a boxplot of the miles per gallon.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+**(e)** On one chart, produce side-by-side boxplots to compare miles per gallon to the number of gears. Use a different color for each category.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+# Write your code here
+```
+
+\
+
+---
