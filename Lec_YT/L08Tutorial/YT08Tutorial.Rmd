@@ -1,0 +1,254 @@
+---
+title: "Your Turn : Simulating Random variables in `R`"
+author: "Dr. Uma Ravat"
+date: "`r Sys.Date()`"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+## Clinical Trial Simulation: pmf from simulation
+
+
+
+Suppose that a clinical trial to test a new drug will be conducted on 8 patients, in which the probability of a good response to the drug is thought to be 0.15.' 
+
+Let us simulate outcomes of 500 clinical trials, where each trial is conducted on 8 patients. 
+
+The following code simulates the trial with 500 replicates.
+
+```{r clinical-trial, exercise=TRUE, exercise.eval=FALSE}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+print("Simulation ran successfully")
+```
+
+**(a)** Run the simulation and view the results (*Hint*: make a plot). Describe the distribution of the number of good responses to the drug. 
+
+
+`r bfcolor("Solutions:", "blue")`
+```{r clinical-trial1-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+```{r clinical-trial1, exercise=TRUE, exercise.eval=FALSE}
+
+```
+```{r clinical-trial1-solution}
+table(number.responses)
+barplot(table(number.responses))
+```
+
+**(b)** What value(s) for response probability would produce a left-skewed distribution? What value(s) would produce a symmetric distribution? (See code for a matrix of plots)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r clinical-trial2, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r clinical-trial2-solution}
+#define parameters
+number.patients = 8
+response.prob = 0.85
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses.A = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate the trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses.A[k] = sum(number.responses.replicate)
+  
+}
+
+#define parameters
+number.patients = 8
+response.prob = 0.5
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses.B = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate the trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses.B[k] = sum(number.responses.replicate)
+  
+}
+
+par(mfrow = c(1, 2))
+barplot(table(number.responses.A))
+barplot(table(number.responses.B))
+```    
+
+**(c)** Based on the results of the simulation, estimate the probability that 0 patients respond well to the new drug. 
+
+`r bfcolor("Solutions:", "blue")`  
+
+The probability that 0 patients respond well is 132/500 = 0.264
+
+```{r clinical-trial3-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+
+
+
+```{r clinical-trial3, exercise=TRUE, exercise.eval=FALSE}
+
+```
+```{r clinical-trial3-solution}
+sum(number.responses == 0)
+sum(number.responses == 0)/number.replicates
+```
+
+**(d)** Let $X$ be a random variable defined as the number of patients who respond well to the experimental drug. Based on the results of the simulation,  construct a probability distribution for $X$, calculate $E(X)$, $V(X)$ and the c.d.f
+    
+`r bfcolor("Solutions:", "blue")`
+
+$X$ can take on values 0 through 8, inclusive.
+
+```{r clinical-trial4-setup}
+#define parameters
+number.patients = 8
+response.prob = 0.15
+number.replicates = 500
+
+#create empty vectors to store results
+number.responses.replicate = vector("numeric", number.patients)
+number.responses = vector("numeric", number.replicates)
+
+#set the seed for a pseudo-random sample
+set.seed(10202022)
+
+#simulate number.replicates many trials
+for(k in 1:number.replicates){
+  
+  number.responses.replicate = sample(c(0,1), 
+                                      size = number.patients,
+                                      prob = c(1 - response.prob, response.prob),
+                                      replace = TRUE)
+  
+  number.responses[k] = sum(number.responses.replicate)
+  
+}
+```
+
+
+```{r clinical-trial4, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r clinical-trial4-solution}
+#using r as a calculator
+prop.table(table(number.responses))  #print probability distribution table
+    
+#calculate E(X)
+xi = 0:8
+prob.xi = prop.table(table(number.responses))
+ex = sum(xi[1:6]*prob.xi) # try 1:8 and see what happens. Why?
+ex
+
+```
+
+
+
+
+
+
