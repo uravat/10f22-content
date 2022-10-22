@@ -1,0 +1,297 @@
+---
+title: 'PSTAT 10: Homework 4'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Week 5 Wednesday October 26"
+output:
+  html_document:
+    toc: yes
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+---
+
+# Instructions for Submission
+
+- This worksheet consists of two parts: Computing Exercises, and Theory Exercises. 
+- The submission portal on Canvas has 3 questions:
+    - One for uploading your `.html` file for the Computing Exercises
+    - One for uploading your `.zip` file containing both the `.html` and `.Rmd` files (along with any relevant datasets/images) for the Computing Exercises
+    - One for uploading a `.PDF` of a photo or scan of your handwritten work for the Theory Exercises
+- As usual, 5 Multiple Choice Questions also appear on Canvas and are a required part of this homework.
+- Remember to save your `.Rmd` file as `hw05-yournetid.Rmd`
+
+\
+
+---
+
+# Computing Exercises:
+
+## Exercise 1: Simulation
+
+In this problem, we will explore the following question: In 9 rolls of a fair six-sided die, what is the probability that the sum of the rolls equals 22? Specifically, we shall work toward answering this through simulation, using $10,000$ replications. \
+
+**(a)** **Answer the question using a `for` loop.** Specifically: use only one call to the `sample()` function to simulate all 9 dice rolls, and use a `for` loop to generate each of the $10,000$ replications. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(b)** **Now, Rewrite your code in two or fewer lines.** Specifically:
+
+1. use the `replicate()` function to replace the `for` loop. 
+2. use the `mean()` function with appropriate logical expression(s) to calculate the required probability. 
+
+**Here is the key and useful idea in calculating probability using simulations:** For each replication, create a logical vector which is  `TRUE` if the event of interest occurs and `FALSE` if the event does not occur. Then take the mean of this vector. This estimates the probability of the event. _Make sure you understand why this works. Come to ULA/TA/instructor office hours if you aren't sure._
+
+To get stared with this exercise **think through this:** What is the event you are interested in focusing on? Can you write that event as a logical (T/F) expression? If so, what do you need to feed into the logical expression regarding your dice rolls? The answer to these questions helps you figure out what expression to feed into the `replicate` function. _As I mentioned, in simulation, you tend to work backwards and in handwritten problems you tend to work forwards to solve the problem._
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(c)** Are your answers to part (a) and (b) the same? Why or why not? 
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer.**
+
+\
+
+**(d)** Roll three fair six-sided dice. What's the probability that the minimum of the scores is greater than 2?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+---
+
+## Exercise 2: Constructing and Plotting P.M.F.'s from Observed Data
+
+The number of times the audio system in IV Theatre 1 failed was observed over a period of 1 year. It was found that 
+
+- 0 failures occurred in each of 9 weeks
+- 1 failure occurred in each of 14 weeks
+- 2 failures occurred in each of 13 weeks
+- 3 failures occurred in each of 9 weeks
+- 4 failures occurred in each of 4 weeks
+- 5 failures occurred in each of 2 weeks
+- 6 failures occurred in 1 week
+
+\
+
+**(a)** Use this observed data to estimate the probability distribution of the audio system failures in a week. You can use the `round` function to make the probabilities round to 2 decimals. Check that it is a valid probability distribution 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+
+\
+
+**(b)** Plot this distribution. Use the plot function with the `type = h` option to draw a line at each failure number. Explain what the height of each line represents in this plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(c)** Find the cumulative distribution function of the audio system failures in a week. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(d)** Plot the c.d.f using `type="S"` to get the stair-case plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(e)** Use your p.m.f and c.d.f and the plot from (d) to approximately calculate $\mathbb{P}(X \leq 3.5)$. Which was the easiest way to calculate this probability? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+\
+
+**(f)**  Use your p.m.f and c.d.f and the plot from (d) to approximately calculate $\mathbb{P}(X \leq 1)$. Understand how the calculation for (e) differs from that of (f) while using the plot. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## write your code here
+```
+
+
+\
+
+---
+
+## Exercise 3: Doubling-Down
+
+In a past iteration of PSTAT 10, the student demographics of the class (specifically which major/s students were enrolled in) was recorded. The data has been stored in the file `roster.csv`. The dataset contains three columns:
+
+  * `id`: the student's ID number (anonymized)
+  * `major1`: the student's first major
+  * `major2`: the students second (double) major; `NA` if the student is enrolled in only one major. 
+
+\
+
+**(a)** Load the data into your `.Rmd` file. **Hint:** `read.csv()`.
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+## Write your code here.
+```
+
+\
+
+**(b)** Write code to determine the number of students included in the dataset; do **NOT** just view the data and manually count!
+
+`r bfcolor("Solutions:", "blue")`
+```{r}
+## Write your code here.
+```
+
+
+\
+
+**(c)** What is the probability that a randomly selected student has Statistics as their `major1`?. 
+
+```{r}
+## Write your code here.
+```
+
+
+\
+
+**(d)** What is the probability that a randomly selected student is a double-major? **Hint:** Think carefully about how double-major-ness is encoded in the dataset. 
+
+```{r}
+## Write your code here.
+```
+
+\
+
+---
+
+# Theory Exercises:
+
+## Exercise 4: Basic Probabilities
+
+Let $A$ and $B$ be two events such that $\Prob(A) = 0.2$, $\Prob(B) = 0.3$, and $\Prob(A \cap B) = 0.1$. 
+
+(a) Compute $\Prob(A \cup B)$
+(b) Compute $\Prob(A^\complement \cap B^\complement)$. **Hint:** Remember what we did in Lab Section, on Worksheet 7.
+(c) Are $A$ and $B$ independent? Why or why not?
+(d) Are $A$ and $B$ mutually exclusive? Why or why not?
+
+\
+
+---
+
+## Exercise 5: Picking a Number
+
+A number is picked at random from the set $\{1, 2, \cdots, 100\}$.
+
+(a) What is the probability that it is a multiple of 3?
+(b) What is the probability that it is greater than 50?
+(c) What is the probability that it is a multiple of 3 that is strictly greater than 50?
+(d) What is the probability that it is a multiple of 3, **given** that it is strictly greater than 50?
+
+\
+
+---
+
+## Exercise 6: Netflix
+
+A recent _Netflix_ survey sureyed several individuals about whether they prefer TV Shows, Movies, or have no strong prefernece either way. The age bracket of each individual was also recorded; the results of the survey are displayed below.
+
+
+| | Prefer TV Shows | Prefer Movies | No Preference |
+|---:|:----:|:----:|:----:|
+| **< 15** | 10 | 15 | 10 |
+| **15 - 25** | 15 | 20 | 25 |
+| **26 - 35** | 30 | 15 | 10 |
+| **36 +** | 10 | 15 | 5 |
+
+If a person is selected at random from the pool surveyed individuals, what is the probability that...
+
+(a) ... they prefer TV Shows, **and** are between 15 and 25 years old?
+(b) ... they prefer TV Shows?
+(c) ... they are over 36 years old?
+(c) ... they prefer movies, **given** that they are between 26 and 35 years old?
+
+\
+
+---
+
+## Exercise 7: Lost Airpods
+
+Sally has lost her airpods somewhere in her apartment. Based on her activity over the past few days, she has the following beliefs:
+
+- She is 25\% certain they are in her living room
+- She is 40\% certain they are in her bedroom
+- She is 30\% certain they are in the bathroom
+- She is 5\% certain they are not in her apartment at all.
+
+Based on how messy each room of her apartment is, she also believes:
+
+- A search of her living room has a 60\% chance of successfully locating her airpods
+- A search of her bedroom has a 80\% chance of successfully locating her airpods
+- A search of her bathroom has a 30\% chance of successfully locating her airpods
+- A search of any location outside her apartment has a 10\% chance of successfully locating her airpods
+
+Use this information to answer the following questions:
+
+(a) What is the probability that she searches her living room **and** is successful at locating her airpods?
+
+(b) What is the probability that she searches her bedroom **and** is successful at locating her airpods?
+
+(c) What is the probability that she is successful at locating her airpods?
+
+\
+
+---
