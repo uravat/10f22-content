@@ -1,0 +1,198 @@
+---
+title: "PSTAT 10: Worksheet 9"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Follow the instructions on Canvas for submitting!"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- This worksheet consists of two parts: Computing Exercises, and Theory Exercises. 
+- You must complete the computing exercises by filling in your code on this `.Rmd` file, just like you did with the previous worksheets. 
+- You must complete the theory exercises on a separate sheet of paper.
+- The submission portal on Canvas will give you instructions on where and how to submit these two documents (your knitted `.html` file, along with a scan or photo of your handwritten work.)
+- Because the submission for this worksheet is a bit more involved than previous ones, you will have until **11:59pm on the day of your Section** to upload your work.
+
+\
+
+---
+
+# Computing Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+## Exercise 1: Flipping a Coin
+
+Flip a fair coin three times. We are interested in the number of tails. Construct the probability mass function (pmf) for this discrete random variable...
+
+**(a)** by hand (i.e. on a separate sheet of paper; you can use the `choose()` function in `R` to simplify your final computations a bit but the majority of your work should be done on paper).
+
+\
+
+**(b)** Using `R`
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** Plot the pmf and cdf (cumulative distribution function).
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(d)** Using the cdf, what is the probability that you get either 1 or 2 tails? \
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 2 : Another Coin Experiment
+
+Suppose that we toss a fair coin ten times.
+
+
+**(a)** Using the `dbinom()` function, calculate the probability of obtaining between 5 and 8 heads, inclusive.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** Using the `pbinom()` function, calculate the probability of obtaining between 5 and 8 heads, inclusive.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Calculate the probability that the number of heads is greater than 7.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 3: Counting Defects.
+
+A manufacturing process creates 3.4\% defective parts. A sample of 10 parts from the production process is selected, with replacement. We are interested in calculating the probability that the sample contains exactly 3 defective parts.
+
+
+**(a)** Define the random variable of interest $X$.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer.**
+
+
+\
+
+**(b)** Check that the conditions for a binomial distribution apply.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+
+**(c)** Calculate  the probability that the sample contains exactly 3 defective parts.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+# Theory Exercises
+
+## Exercise 4: Netflix
+
+Thirty percent of college students watch Netflix at least 3 nights a week. You randomly
+select 10 college students, with replacement. What is the probability that
+
+(a) exactly 5 of them watch Netflix at least 3 nights a week?
+(b) more than 8 of them watch Netflix at least 3 nights a week, i.e. $\mathbb{P}(X > 8)$?
+(b) the number of students who watch Netflix at least 3 nights a week from this sample is between 3 and 6, i.e. $\mathbb{P}(3 ≤ X ≤ 6)$?
+
+
+\
+
+---
+
+## Exercise 5: Pizza Party
+
+Suppose that 85\% of UCSB students enjoy Woodstock’s Pizza. If we collect a random sample 20 students with replacement, find the mean and standard deviation of the number of students who enjoy Woodstock’s Pizza.
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
