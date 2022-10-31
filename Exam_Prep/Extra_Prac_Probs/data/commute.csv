@@ -1,0 +1,209 @@
+c_time,oc_time,majors,locs
+15.42,168.02,psych,Library
+15.07,152.7,psych,Outside
+12.31,123.67,psych,Outside
+15.12,168.32,psych,Library
+11.61,129.35,psych,Other
+14.94,163.7,psych,Other
+15.88,139.58,psych,Library
+15.34,170.28,psych,Other
+14.17,144.91,psych,UCEN
+15.33,154.76,psych,Outside
+18.08,189.83,psych,Outside
+16.35,172.84,psych,St. Rm.
+16.06,147.77,psych,Library
+15.98,155.7,psych,UCEN
+13.8,147.66,psych,Outside
+14.47,132.85,psych,UCEN
+12.62,122.18,psych,St. Rm.
+15.32,159.52,psych,Library
+16.58,175.27,psych,Outside
+15.59,155.82,psych,Library
+14.04,161.15,psych,UCEN
+12.04,134.85,psych,Library
+15.66,137.58,psych,Outside
+12.41,131.64,psych,Outside
+14.34,161.19,psych,Outside
+12.85,137.52,psych,UCEN
+13.51,135.48,psych,Outside
+13.2,133.72,psych,UCEN
+14.5,160.19,psych,Other
+14.2,142.6,psych,Outside
+13.41,145.6,psych,Outside
+16.01,160.48,psych,Outside
+16.65,174.48,psych,Outside
+15.75,177.19,psych,Library
+12.65,150.95,psych,Library
+15.8,160.89,psych,Other
+17.74,190.75,psych,St. Rm.
+12.16,146.43,psych,Outside
+15.81,146.65,psych,Library
+12.74,140.75,psych,Outside
+15.91,170.05,psych,UCEN
+13.88,146.83,psych,Outside
+12,143.54,psych,Outside
+12.5,148.8,psych,Library
+13.82,150.68,psych,Library
+14.73,156.88,psych,Outside
+11.47,127.77,psych,UCEN
+12.77,144.43,psych,UCEN
+13.46,130.92,psych,Outside
+14.87,152.91,psych,UCEN
+19.03,176.88,psych,UCEN
+15.16,162.9,psych,St. Rm.
+16.75,164.27,econ,Library
+16.94,174.86,econ,Outside
+12.78,156.24,econ,Outside
+13.99,123.93,econ,UCEN
+15.22,143.04,econ,UCEN
+16.41,176.89,econ,Outside
+11.95,146.59,econ,UCEN
+14.97,154.19,econ,Outside
+13.8,139.75,econ,Outside
+16.39,150.2,econ,UCEN
+17.51,185.51,econ,Library
+17.42,183.7,econ,Library
+17.22,179.18,econ,UCEN
+15.96,138.75,econ,Library
+14.07,134.57,econ,Outside
+14.39,136.87,econ,UCEN
+14.88,143.43,econ,Library
+15.02,145.73,econ,Other
+13.38,137.8,econ,Outside
+12.14,145.33,econ,Outside
+12.95,145.24,econ,Outside
+15.78,148.53,econ,UCEN
+13.95,155.57,econ,Outside
+15.8,142.88,econ,St. Rm.
+12.84,134,econ,St. Rm.
+14.54,138.96,econ,Library
+14.76,150.2,econ,St. Rm.
+16.47,158.3,econ,St. Rm.
+15.27,130.45,econ,Outside
+15.54,167.03,econ,UCEN
+16.14,166.05,econ,UCEN
+17.77,173.81,econ,Outside
+15.78,169.73,econ,Outside
+12.53,135.52,econ,Outside
+15.89,171.16,econ,UCEN
+15.93,142.28,econ,Outside
+12.99,130.4,econ,Outside
+13.8,155.5,econ,Outside
+12.69,174.24,econ,Outside
+15.11,163.19,econ,St. Rm.
+13.85,144.88,econ,Outside
+14.97,156.59,econ,UCEN
+14.61,166.53,eng,Outside
+13.91,142.94,eng,UCEN
+15.46,161.89,eng,UCEN
+16.38,171.62,eng,Library
+19.22,193.87,eng,UCEN
+16.3,179.02,eng,UCEN
+13.75,157.85,eng,Outside
+14.69,155.1,eng,UCEN
+17.26,157.87,eng,Outside
+15.69,159.2,eng,UCEN
+13.52,154.57,eng,UCEN
+16.22,153.48,eng,UCEN
+15.65,152.04,eng,UCEN
+13.13,159.35,eng,Outside
+15.38,145.78,eng,UCEN
+14.6,148.03,eng,UCEN
+13.48,128.66,eng,Outside
+16.98,166.06,eng,Outside
+15.97,155.94,eng,Outside
+12.89,146.83,eng,Other
+17.03,162.83,eng,Outside
+14.28,144.57,math,UCEN
+19.71,197.49,math,Library
+17.29,169.97,math,Library
+17.84,171.14,math,UCEN
+14.58,150.3,math,Outside
+12.21,138.23,math,UCEN
+14.75,155.61,math,Outside
+13.59,165.75,math,Outside
+12.71,126.07,math,Outside
+14.86,159.73,math,UCEN
+11.98,151.71,math,UCEN
+13.97,149.92,math,Library
+13.17,151.04,math,Library
+16.94,159.56,math,St. Rm.
+13.27,142.34,math,Library
+18.69,167.26,math,St. Rm.
+14.64,155.65,math,UCEN
+14.1,162.66,math,Library
+17.16,158.01,math,Library
+14.67,150.65,math,St. Rm.
+14.45,135.63,math,Outside
+16.27,169.07,math,UCEN
+15.67,155.5,math,UCEN
+13.37,126.5,math,UCEN
+16.2,188.23,math,Other
+15.57,163.97,math,Outside
+14.33,143.57,math,St. Rm.
+13.59,136.26,math,Library
+15.14,138.67,math,Outside
+13.24,148.73,math,St. Rm.
+17.1,160.99,math,Outside
+16.71,174.22,stats,Outside
+19.15,183.74,stats,St. Rm.
+16.7,165.73,stats,UCEN
+16.78,168.44,stats,UCEN
+14.28,143.19,stats,Outside
+16.61,165.78,stats,Outside
+16.24,158.07,stats,Library
+13.59,169.12,stats,Library
+12.44,136.18,stats,St. Rm.
+12.9,132.08,stats,Outside
+14.12,145.97,stats,UCEN
+16.41,166.18,stats,Other
+15.19,145.71,stats,Other
+13.05,148.69,stats,Library
+16.94,171.81,stats,St. Rm.
+15.02,151.65,stats,Library
+17.14,182.82,stats,Library
+13.53,134.57,stats,Outside
+14.97,149.69,stats,Library
+14.47,149.62,stats,Outside
+13.93,144.48,stats,UCEN
+13.96,167.98,stats,UCEN
+17.27,179.9,stats,Other
+14.45,152.5,stats,Outside
+14.79,151.52,stats,UCEN
+15.55,150.78,stats,Outside
+15.6,165.64,stats,UCEN
+16.71,163.6,stats,UCEN
+12.77,122.07,stats,UCEN
+14.61,154.89,stats,Outside
+15.53,149.54,stats,St. Rm.
+13.91,141.68,other,Outside
+14.18,140.6,other,UCEN
+14.08,156.81,other,Outside
+18.46,171.22,other,St. Rm.
+14.44,160.84,other,UCEN
+15.75,187.25,other,UCEN
+14.67,151.34,other,Library
+14.95,153.59,other,Outside
+17.13,156.47,other,Library
+13.66,150.05,other,Outside
+15.21,166.08,other,Outside
+17.23,168.2,other,Outside
+16.55,166.68,other,Library
+15.95,158.03,other,UCEN
+16.08,165.9,other,Outside
+16.39,167.39,other,Other
+13.91,177.5,other,Library
+11.82,129.29,other,St. Rm.
+15.75,170.88,other,Outside
+13.85,139.65,other,UCEN
+12.95,141.22,other,Outside
+15.33,161.99,other,Library
+15.03,151.48,other,Other
+17.17,172.29,other,Outside
+14.03,161.11,other,Library
+16.56,149.65,other,Library
+15.05,147.51,other,Library
+14.68,157.87,other,Outside
+14.23,161.79,other,UCEN
+16.24,166.73,other,UCEN
+15.34,159.48,other,Library

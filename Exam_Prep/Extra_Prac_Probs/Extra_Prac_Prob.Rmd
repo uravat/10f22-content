@@ -1,0 +1,379 @@
+---
+title: 'PSTAT 10: Extra Practice Problems'
+date: "These problems will not be collected, nor will they be graded."
+output:
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# Instructions:
+
+- These problems will not be collected, nor will they be graded. 
+- We are not currently planning on releasing their solutions; we encourage you to stop by Office Hours or the HW Clinic to check your work.
+- The content on this Problem Set is by no means meant to be comprehensive, nor is the style of these questions meant to be indicative of the style of the Midterm. Rather, these are merely meant to be an additional supplement to your studying.
+
+\
+
+---
+
+# Computing Exercises:
+
+## Exercise 1: Commuting
+
+A recent study surveyed several individuals about their commutes to campus, along with some additional information. The results of the survey are stored in the file `commute.csv` which contains the following variables:
+
+- `c_time`: the commute time (in minutes) of each individual
+- `oc_time`: the amount of time (in minutes) each individual spends on campus, on average
+- `majors`: the majors of the surveyed individuals
+- `locs`: which on-campus location is each individual's favorite place to study
+
+**(a)** Read in the data. **While doing so:** Look up the help file for `read.csv()`, and take alook at the `stringsAsFactors` argument. You may need to play around with the value of this argument.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** How many people were surveyed?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Does there appear to be a relationship between commute times and time spent on campus? Answer this question by producing a relevant graphic, and interpreting the results.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** What is the distribution of favorite on-campus study locations? Produce a relevant graphic.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(e)** What is the distribution of commute times across majors? Produce a relevant graphic, and interpret. Think in terms of the 5-number summary, Interquartile Range, etc.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(f)** Are commute times normally distributed? Produce a relevant graphic.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(g)** If one of the surveyed individuals is randomly selected, what is the probability that they are a psychology major? Answer using code.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(h)** A surveyed individual is selected at random; they are found to be a statistics major. What is the probability that their favorite on-campus study location is the UCEN?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 2: Dice to Meet You
+
+**(a)** Consider the experiment of rolling 2 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+\
+
+
+**(b)** Now, consider the experiment of rolling 4 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+
+\
+
+
+**(c)** Now, consider the experiment of rolling 6 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** Now, consider the experiment of rolling 10 fair six-sided dice, and recording the sum. Simulate conducting this experiment 10,000 times and plot the histogram of the sum. Does the sum appear to be normally distributed? Use a QQplot to verify.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(e)** Finally, collect the QQPlots you made in parts (a) through (d) above and display them in a 2 $\times$ 2 grid, using the `par(mfrow = c(2, 2))` command from Lecture 9. Comment on how the normality of the sum changes as a function of the number of dice that were rolled.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+---
+
+## Exercise 3: The Chosen 1
+
+Write a function called `ones_digit()` that extracts out the ones digit of a positive integer. Your function should return the error "Input Cannot Contain Decimals" if a number with decimals is used as the argument. If `ones_digit()` is called on a negative integer, it will return the ones digit as a positive number; e.g. `ones_digit(-1029)` should output `9`. **Hint:** Consider the modulo operator.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\ 
+
+---
+
+## Exercise 4: I've Fallen and I Can't Get Up
+
+The so-called **falling factorial** is defined in the following way:
+$$ (n)_k := n \times (n - 1) \times (n - 2) \times \cdots \times (n - k + 1) $$
+So, for example: $(5)_2 = 5 \times 4 \times 3 = 60$. Write a function `falling_factorial()` that takes in two inputs, `n` and `k`, and returns the output $(n)_k$. Do **NOT** use the `factorial()` function when constructing `falling_factorial()`; use loops instead! **Hint:** Take a look at the construction of the `newfactorial()` function from HW05.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 5: Distributions
+
+Suppose the random variable $X$ has the following probability mass function (p.m.f.):
+
+| x | -4 | -3 | 1 | 3 | 5.5 | 6 | 7 | 9 |
+|--:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| $\mathbb{P}(X = x)$ | 0.1 | 0.15 | 0.2 | 0.05 | 0.07 | 0.1 | $a$ | 0.13 |
+
+**(a)** Find the value of $a$.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Plot the probability mass function (p.m.f.) of $X$. Remember to use `type = "h"` in your call to `plot()`!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Plot the cumulative distribution function (c.d.f.) of $X$. Remember to use `type = "s"` in your call to `plot()`!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** Compute $\mathbb{E}[X]$, the expected value of $X$.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(e)** Compute the variability of $X$.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exericse 6: Rod Production
+
+Steel rods produced by *GauchoFoundry* are meant to be 3 meters in length. Due to production variability, however, the length of a randomly selected rod is actually normally distributed with mean 3 meters and standard deviation 0.75 meters. 
+
+**(a)** Simulate drawing two rods at random from a batch of rods manufactured at *GauchoFoundry* and recorind their weights. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** What rod length is at the 63^rd^ percentile of rod lengths?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** What proportion of rods are between 2 and 3 meters in length? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** If a sample of 100 rods is taken with replacement, what is the probability that between 30 and 60 rods (inclusive) will be between 2 and 3 meters in length?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+# Theory Exercises
+
+## Exercise 7: Fortune Cookies Favor the Bold
+
+For a birthday party, Timo bakes 20 fortune cookies. He fills 12 of them with a quote, 6 of them with a joke, and the rest with gift certificates to the local cinema. 
+
+(a) Are the events $A =$ "a randomly selected cookie has a quote in it" and $B =$ "a randomly selected bookie has a gift certificate in it" mutually exclusive? Justify your answer.
+(b) What is the probability that a randomly selected cookie will contain a joke?
+
+\
+
+---
+
+## Exercise 8: Majorly Cool
+
+Administrators at *Gaucho College* have collected the following information about their students:
+
+| | **STEM** | **English** | **Economics** | **Sociology** |
+|---:|:----:|:----:|:----:|:----:|
+| **Male** | 40 | 30 | 30 | 10 | 
+| **Female** | 60 | 40 | 10 | 15 |
+| **Non-Binary** | 10 | 5 | 10 | 0 |
+
+(a) What is the probability that a randomly selected student is a female STEM-major?
+
+(b) Given that Alex is non-binary, what is the probability that they are an Economics major?
+
+(c) What proportion of English Majors are male?
+
+\
+
+---
+
+## Exercise 9: Sampling
+
+Suppose we run `sample(c("A", "B", "C", "D", "E"), size = 2)`. 
+
+(a) What is the probability that the outcome reads `"A" "A"`?
+(b) What is the probability that the outcome reads `"A" "B"`?
+
+
+\
+
