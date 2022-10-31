@@ -1,0 +1,391 @@
+---
+title: 'PSTAT 10: Homework 5'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Week 5 Wednesday November 2"
+output:
+  html_document:
+    toc: yes
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+# Instructions for Submission
+
+- This homework is a bit of a review homework, in that it contains problems on several topics covered in the course thus far. `r bfcolor("PLEASE NOTE: this is by no means meant to be comprehensive.", "red")`
+- This homework consists of two parts: Computing Exercises, and Theory Exercises. 
+- The submission portal on Canvas has 3 questions:
+    - One for uploading your `.html` file for the Computing Exercises
+    - One for uploading your `.zip` file containing both the `.html` and `.Rmd` files (along with any relevant datasets/images) for the Computing Exercises
+    - One for uploading a `.PDF` of a photo or scan of your handwritten work for the Theory Exercises
+- No multiple choice questions for this homework, but please review the previous multiple choice questions from the past few weeks.
+- Remember to save your `.Rmd` file as `hw05-yournetid.Rmd`
+
+\
+
+---
+
+# Computing Exercises:
+
+## Exercise 1: Listlessness
+
+**(a)** Construct a list called `my_list` that contains 4 members:
+
+- The first member should be a vector of integers from 3 to 20, inclusive
+- The second member should be a vector containing the words `cat`, `dog`, `elephant`, `giraffe`, and `hippopotamus`
+- The third member should be a $4 \times 2$ matrix containing the even numbers from 2 to 16, inclusive, where the elements are fed in by row.
+- The fourth member should be the vector `A+, A, A-, B+, B, B-, C+, C, C-` encoded as an ordered factor.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(b)** Access the first member of `my_list`, and check that it has really been stored as an integer Data Type.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(c)** Access the fourth member of `my_list`, and check that it has really been stored as an ordered factor Data Structure.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+
+**(d)** Write code to access the second member of `my_list`, displayed in descending alphabetical order.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(e)** Write code that subsets the members and/or elements of members of `my_list` to return the output `2`. 
+
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(f)** Write code to assign the names `member1`, `member2`, `member3`, and `member4` to the members of the list. Then, extract the names of `my_list` using a function and ensure everything was assigned properly. As a reminder, be sure to print `my_list` at the end
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+
+---
+
+## Exercise 2: String Lights
+
+Consider the string `"String Lights Make My Apartment Look Real Sophisticated."` \
+
+**(a)** Write code to access the word `"Lights"`. **Hint:** One of the functions we dealt with on a previous homework may help here.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+`r bfcolor("Solutions", "blue")`
+
+**(b)** Replace all instances of the letter `t` with `z`. 
+
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+---
+
+## Exercise 3: Sleep Study
+
+A recent study at \emph{Gaucho University} surveyed several undergraduate students on their sleep habits. The results are stored in the dataset `sleep.csv`, which contains the following variables:
+
+- `age`: the age of each individual
+- `standing`: the standing (`Freshman`, `Sophomore`, `Junior`, `Senior`, `SuperSenior`) of each individual
+- `sleep`: the amount of sleep (in hours) each individual had on average, per night
+- `gender`: the gender of each student (`female`, `male`, `nonbinary`)
+- `coffee`: the average number of cups of coffee each individual drinks, per day
+
+\
+
+**(a)** Read in the data.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(b)** Are there any missing values? If so, which variable(s) contain missing values?
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(c)** Generate an appropriate plot to visualize the distribution of ages represented in this study. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(d)** Generate an appropriate plot to visualize the distribution of average daily coffee consumption. (Hint: note that the variable `coffee` contains only integer values.)
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(e)** Generate an appropriate plot to visualize the distribution of genders present in this study.
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(f)** Generate a plot to visualize the relationship between `sleep` and `standing`. Does any particular standing appear to get less sleep (on average) than other standings?
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(g)** Plot the relationship between `sleep` (on the y-axis) and `age` (on the x-axis).
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(h)** Provide a numerical summary of the average amount of sleep of participants in the study. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(i)** Test the normality of the values in the `sleep` variable. 
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+---
+
+## Exercise 4: Phone a Friend
+
+The amount of time a randomly selected person spends on the phone in a given day is normally distributed with mean 8hrs and a standard deviation 1.5hrs. \
+
+**(a)** What is the probability that a randomly selected person will spend between 8 and 10 hours on their phone in a given day?
+
+`r bfcolor("Solutions", "blue")`
+
+**Replace this line with your text/setup (if applicable)**
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Now, a sample of 123 people is taken with replacement. What is the probability that exactly 36 of them spend between 8 and 10 hours on their phone in a given day? **Hint:** You'll need to use your answer from part (a).
+
+`r bfcolor("Solutions", "blue")`
+
+**Replace this line with your text/setup (if applicable)**
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 5: Betting Odds
+
+A magical genie approaches you one day, and makes you an offer to give you \$100 if you win a game. He offers you the choice to play one of the following two games:
+
+- **Game A:** The genie tosses 100 fair coins; you win if more than 50 of the tosses land on heads.
+- **Game B:** The genie tosses 1000 fair coins; you win if more than 500 of the tosses land on heads.
+
+Which game should you play? In other words, in which of the two games are your chances of winning the \$100 higher? Be sure to justify your answer. \
+
+`r bfcolor("Solutions", "blue")`
+
+```{r}
+## Add your code here, if applicable.
+```
+
+**Replace this line with your final answer, and any other justifications you want to make.**
+
+\
+
+---
+
+## Exercise 6: Re-Inventing the Wheel
+
+In this problem, we are going to define our own function to compute factorials. \
+
+**(a)** Fill in the blanks in the following code so that it correctly computes $8!$ using a `while` loop.
+
+```{r, eval = F}
+n <- 8
+
+counter <- 1
+prod <- 1
+
+while(counter <= ______){
+  prod <- prod * ______
+  counter <- ______ + ______
+}
+
+print(______)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+
+\
+
+**(b)** Now, look up the `stop()` function in `R`. Describe what it does.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your description.**
+
+
+\
+
+**(c)** Finally, make a function `newfactorial()` that takes in a single input `n` and returns $n!$. Some things to keep in mind:
+
+- In the body of your function, you will need to use the `while` loop you constructed in part (a).
+- Your function should be able to compute $0!$ as 1.
+- If you try calling `newfactorial()` on a number that is either negative or not an integer, `newfactorial()` should output an error stating "Error: input must be a natural number or 0." **Hint:** Think about how you can use the modulo operator `%%` to determine whether a given number is an integer or not.
+
+As always, you should test your function with a few different inputs. Specifically, test that
+
+- `newfactorial(8)` matches with the output of `factorial(8)`
+- `newfactorial(0)` correctly outputs `1`
+- `newfactorial(-1)` correctly outputs an error (remember you may need to fiddle around with your code chunk options to get things to knit properly!)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+# Theory Exercises
+
+## Exercise 7: Life Was Like a Box of Chocolates
+
+In a box there are 24 pieces of candy. 18 of these candies have a milk chocolate coating, and 6 have a white chocolate coating. Two thirds of the milk chocolate
+candies have a Marzipan filling. In total, there are 16 candies with Marzipan filling.
+
+(a) Find the probability of randomly selecting a candy that is either coated in which chocolate or filled with Marzipan.
+
+(b) Suppose you randomly selected a candy, opened it, and noted that is has a white chocolate coating. What is the probability that it has a marzipan filling?
+
+
+\
+
+---
+
+## Exercise 8: Counting Cards
+
+Two cards are drawn at random and without replacement from a standard deck of cards.
+
+(a) What is the probability that the second card is an ace, given that the first card was an ace?
+(b) What is the probability that both cards are aces?
+

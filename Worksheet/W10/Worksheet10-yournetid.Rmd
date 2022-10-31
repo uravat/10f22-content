@@ -1,0 +1,305 @@
+---
+title: "PSTAT 10: Worksheet 10"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due 30 minutes after Lab Section, on Canvas"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- We are back to having only computing exercises on the worksheets. As such, this worksheet is due **30 minutes after the end of Lab**, as was the case in the first few weeks of this course.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+## Exercise 1: Waiting
+
+The time it takes a department office to process a form is uniformly distributed between 4 days and 10 days. A form is selected at random, and the time it takes to get processed is recorded. \
+
+**(a)** Define an appropriate random variable. What is the distribution of this random variable? _(Be sure to mention the parameters.)_
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers.**
+
+
+\
+
+**(b)** What is the probability that it will take **exactly** 7 days to process the form?
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers.**
+
+
+\
+
+**(c)** What is the probability that the office will take fewer than 8 days to process a randomly selected form?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+punif(8, 4, 10)
+```
+
+
+\
+
+---
+
+## Exercise 2: IQ
+
+The Intelligence Quotient (IQ) of a person is normally distributed with mean 100 and standard deviation 16. \
+
+**(a)** What percentage of the population have an IQ in the interval (84, 116)?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** What percentage of the population have an IQ lower than 90?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** MENSA is an organization for people with an IQ in the top 2\% of the population. What is the lowest IQ score a person needs to posses in order to get admitted to MENSA?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 3: Plotting
+
+Suppose $X \sim \mathcal{N}(10, 3)$. [Remember that this is another notation for specifcying that $X$ follows a normal distribution.] \
+
+**(a)** Define a function `dens_fnt()` that returns the density of $X$. You can use calls to `dnorm()`, `pnorm()`, etc., but your function should be able to be called on a single input; e.g. `dens_fnt(10)`.  
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Define a function `cdf_3()` that returns the cumulative distribution function (c.d.f.) of $X$.  You can use calls to `dnorm()`, `pnorm()`, etc., but your function should be able to be called on a single input; e.g. `cdf_3(10)`. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Generate a **side-by-side** plot of the density curve and c.d.f. of $X$. Ensure both of your plots have a lower $x-$limit of 1 and an upper $x-$limit of 19. (Can you tell me why I picked these two values?) **Some Hints:** 
+
+- For generating the plots, the `curve()` function may be useful (along with the functions you created in parts (a) and (b) above).
+- For getting your plots side-by-side, remember the `par` and `mfrow` commands from Lecture 9. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+
+\
+
+---
+
+## Exercise 4: Temperature in GauchoVille
+
+A weather station collected 100 measurements (at randomly selected times throughout several days across several months) of the temperature (in Celsius) at the remote northern village of _GauchoVille_. The data is stored in the file `temp.csv`, along with an index indicating on what day each measurement was taken. \
+
+**(a)** Read in the data. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here.
+```
+
+\
+
+**(b)** Plot a histogram of the temperature values. Based solely on this histogram, do you think the temperature in \emph{GauchoVille} follows a normal distribution?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+**Replace this line with your conclusions**
+
+\
+
+**(c)** Generate a graphic that allows you to more rigorously test the assertion of normality. (As a starting point, you may want to read the Lecture 10 slides again, paying attention to how we assessed normality during lecture.)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+**Replace this line with your conclusions**
+
+
+\
+
+**(d)** Based on your answers above, do you think that histograms are a good way of determining normality? Why or why not?
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers**
+
+\
+
+---
+
+## Exercise 5: More Normal Stuff
+
+Suppose the random variable $X$ follows a normal distribution with mean $10$ and standard deviation $2$. 
+
+**(a)** Approximately what is the value $\mathbb{P}(8 < X < 12)$? You should be able to answer this without any computation!
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answers**
+
+
+\
+
+**(b)** Now, simulate 10000 draws from the $\mathcal{N}(10, 2)$ distribution and compute the proportion of observations that were in the interval $(8, 10)$. As a reminder, this number should be very close to your answer to part (a) above.
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 6: Writing Files
+
+By now, we're experts at reading *in* files. One equally useful skill that we haven't really developed yet is that of *writing* files. As Data Scientists it is especially important that we are able to write files that we can give to our clients- clients would much prefer to receive an `.csv` file as opposed to a huge printout of numbers! In this problem, we'll get some practice with writing files.  \
+
+**(a)** Look up the the help file for the function `write.csv()`, and comment on what you find.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here, if applicable.
+```
+
+**Replace this line with your answers**
+
+
+\
+
+**(b)** Now, simulate 1 million draws from the $\mathrm{UNIF}(10.382 \ , \ 55.302)$ distribution; store these simulated draws in a vector called `draws_from_unif`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Next, use the `write.csv()` function to export the values in your `draws_from_unif` variable to a file called `W10_q5.csv`. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** Finally, read in your `W10_q5.csv` file, and use `head()` to display the first few elements in the file. Check that these match the first few values of the `draws_from_unif` variable you created in part (b) above.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**As an Aside:** When you read your file back in, you might notice that `R` automatically exported the row names of your `draws_from_unif` vector. See if you can play around with the arguments to `write.csv()` to see if you can export your simulated draws *without* including the row names.
+
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
+
