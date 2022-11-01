@@ -206,7 +206,7 @@ Write a function called `ones_digit()` that extracts out the ones digit of a pos
 
 The so-called **falling factorial** is defined in the following way:
 $$ (n)_k := n \times (n - 1) \times (n - 2) \times \cdots \times (n - k + 1) $$
-So, for example: $(5)_2 = 5 \times 4 \times 3 = 60$. Write a function `falling_factorial()` that takes in two inputs, `n` and `k`, and returns the output $(n)_k$. Do **NOT** use the `factorial()` function when constructing `falling_factorial()`; use loops instead! **Hint:** Take a look at the construction of the `newfactorial()` function from HW05.
+So, for example: $(5)_3 = 5 \times 4 \times 3 = 60$. Write a function `falling_factorial()` that takes in two inputs, `n` and `k`, and returns the output $(n)_k$. Do **NOT** use the `factorial()` function when constructing `falling_factorial()`; use loops instead! **Hint:** Take a look at the construction of the `newfactorial()` function from HW05.
 
 `r bfcolor("Solutions:", "blue")`
 
