@@ -1,0 +1,190 @@
+---
+title: "PSTAT 10: Worksheet 13"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due 30 minutes after Lab Section, on Canvas"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- We are back to having only computing exercises on the worksheets. As such, this worksheet is due **30 minutes after the end of Lab**, as was the case in the first few weeks of this course.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+For this worksheet, we need will again connect to the Chinook DB from lecture. Make sure the database is available to this .Rmd file in `data` folder
+
+## Exercise 1: Establishing a Connection
+
+Load the necessary packages and open a connection to the Chinook database housed in the sqlite file in the data folder
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 2: Terminology
+You may use Google to find explanations that make sense to you. 
+
+**(a)** Briefly explain the purpose of primary keys and foreign keys in a relational database.
+
+`r bfcolor("Solutions:", "blue")`
+
+
+**Replace this line with your answer**
+
+
+\
+
+**(b)** Briefly explain how relational databases model real world data.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer**
+
+
+\
+
+**(c)** Briefly explain the difference between SQL, SQLite, and `RSQLite`.
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer**
+
+
+\
+
+---
+
+
+## Exercise  3: Tables and Foreign keys
+
+**(a)** List all tables in the database
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer**
+
+
+\
+
+**(b)** **List all of the foreign key relationships in the database.** How many are there in all?
+
+Write out these relationships in the following format:
+
+`TableName.ForeignKey -> TargetTableName.PrimaryKey`.
+
+For example, the following indicates that
+`SupportRepId` in the `Customer` table is a foreign key to the primary key
+of the `Employee` table, which is `EmployeeId.`
+
+1. `Customer.SupportRepId -> Employee.EmployeeId`
+
+*Hint:*
+There are 11 total relationships to list.
+Do not simply "guess" by looking at the diagram from lecture. Access
+the Chinook database schema information using the SQLite `pragma` command.
+
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer**
+
+
+\
+
+
+---
+
+
+## Exercise 4: SQL queries
+
+**(a)** Select the `CustomerId`, `FirstName`, `LastName`, `State`, `Country` of all customers living in California.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** How many customers are from USA? 
+
+_Hint_: Use `count(*)` in your select query
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 5: SQL queries
+
+Choose another table from the database. Write a SQL query and describe in words what your query is doing. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
