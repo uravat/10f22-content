@@ -146,7 +146,7 @@ dbGetQuery(lahman_db_2019,
 ```{r eval=FALSE}
 dbGetQuery(lahman_db_2019,
            "SELECT playerID, yearID, AB, H, HR
-           FROM Battting
+           FROM Batting
            WHERE HR > 50
            ORDER BY HR DESC"
 )
@@ -261,7 +261,7 @@ dbGetQuery(lahman_db_2019,
 `r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (i)", "black")`
 
 ```{r eval=FALSE}
-dbGetQuery(lahmnan_db_2019,
+dbGetQuery(lahman_db_2019,
            "SELECT teamID, AVG(HR)
            FROM Batting
            WHERE yearID >= 1999
@@ -473,6 +473,7 @@ tab %>%
     - `TA_ID`: a unique identifier is assigned to each teaching assistant (TA)
     - `NAME`: TA's name
     - `DEPT_NO`: a unique identifier is assigned to each UCSB academic department.
+    - `OFFICE_NO`: a unique office identification number.
     
 \bigskip
 
