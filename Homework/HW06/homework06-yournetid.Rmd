@@ -1,0 +1,504 @@
+---
+title: 'PSTAT 10: Homework 6'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Week 8 Wednesday November 16"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+library(kableExtra)
+```
+
+---
+
+# Instructions for Submission
+
+- As usual, 5 Multiple Choice Questions also appear on Canvas and are a required part of this homework.
+- Remember to save your `.Rmd` file as `hw06-yournetid.Rmd`
+- The final question in this homework does not require any coding, but you should still typeset your answers into the `.Rmd` file. (You will still only submit one `.html` file to Canvas.)
+
+\
+
+---
+
+# Introduction
+
+## Lahman baseball database
+
+Extensive baseball data is freely available all the way back to the 1871 season. We're going to use a `SQLite` version of the a particular database containing information on various seasons of baseball up to the 2019 season, put together by Jeff Knecht, at https://www.seanlahman.com/baseball-archive/statistics/. We have also made the database available to you on the class server, in a file called `l2019_lahmansbaseballdb.sqlite` located in your `data` folder. \
+
+Throughout this homework, you may find it useful to consult the Database Description associated with this database. It can be found at this url: https://www.seanlahman.com/files/database/readme2019.txt
+
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+
+## Exercise 1: Connecting to the database
+
+Load the necessary packages and open a connection named `lahman_db_2019` to the Lahman 2019 season database housed in the `sqlite` file in the data folder.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 2: Getting to know your database
+
+**(a)** List all relations in the database
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Consider the relation named `Batting`/. Save it as a data frame in your `R` session, called `batting_2019`. Check that `batting_2019` is indeed a data frame. What is its dimension? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)**  Remove `eval=FALSE` from the `R` code chunks below and run the code chunks. Then, after each SQL query (each call to `dbGetQuery()`) has executed, explain in words what is being extracted.
+
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (i)", "black")`
+    
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT playerID, yearID, AB, H, HR
+           FROM Batting
+           ORDER BY yearID
+           LIMIT 10"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (ii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT playerID, yearID, AB, H, HR
+           FROM Batting
+           ORDER BY HR DESC
+           LIMIT 10"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (iii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT playerID, yearID, AB, H, HR
+           FROM Battting
+           WHERE HR > 50
+           ORDER BY HR DESC"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (iv)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT playerID, yearID, AB, H, HR
+           FROM Batting
+           WHERE yearID >= 1999 AND yearID <= 2009
+           ORDER BY HR DESC
+           LIMIT 10"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+---
+
+
+## Exercise 3: SQL computations
+
+
+**(a)** As before, remove `eval=FALSE` from the following `R` code chunks. Then, after each SQL query, explain in words what is being extracted. 
+
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (i)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019, 
+           "SELECT AVG(HR)
+           FROM BATTING"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (ii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT SUM(HR)
+           FROM BATTING"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (iii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT playerID, yearID, teamID, MAX(HR)
+           FROM BATTING"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution** 
+
+
+\
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (iv)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT AVG (HR)
+           FROM BATTING
+           WHERE yearID >= 1999"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+
+
+**(b)** Again, after each SQL query explain in words what is being extracted.
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (i)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahmnan_db_2019,
+           "SELECT teamID, AVG(HR)
+           FROM Batting
+           WHERE yearID >= 1999
+           GROUP BY teamID
+           LIMIT 5"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (ii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019,
+           "SELECT teamID, AVG(HR)
+           FROM Batting
+           WHERE yearID < 1950
+           GROUP BY teamID
+           ORDER BY AVG(HR) DESC
+           LIMIT 5"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+`r bfcolor("&nbsp;&nbsp;&nbsp;&nbsp; (iii)", "black")`
+
+```{r eval=FALSE}
+dbGetQuery(lahman_db_2019, 
+           "SELECT teamID, yearID, AVG(HR)
+           FROM Batting
+           WHERE yearID == 1990 OR yearID == 1991
+           GROUP BY teamID, yearID
+           ORDER BY AVG(HR) DESC
+           LIMIT 15"
+)
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+---
+
+
+## Exercise 4: Some more practice with SQL computations
+
+**(a)**  Use a SQL query on the `Batting` relation to calculate each player's average number of hits (`H`) over the seasons they played, and display the players with the 10 highest hit averages, along with their hit averages. **Hint**: `AVG()`, `GROUP BY`, `ORDER BY`. 
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+
+**(b)** Calculate the same quantity you calculated in the previous part, but now display all players whose hit averages are above 180. **Hint**: `HAVING`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+
+**(c)** Calculate the same quantity you calculated in the previous part, but now display for all players with hit averages above 180----in addition to the player's ID and his batting average---the last year in which each player played. 
+                          
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+
+**(d)** 
+
+A `DISTINCT` clause is an optional clause of the `SELECT` statement. The `DISTINCT` clause allows you to remove the duplicate rows in the result set.
+
+The syntax of the DISTINCT clause:
+```
+  SELECT DISTINCT	select_list
+  FROM table;
+```
+
+How many distinct teamId's are there in `Batting` relation? _Hint: You can use `count(colname)` in `SELECT` to count the number of rows in `colname`. What would you use to count `DISTINCT` teamID's?_
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 5: Closing the Connection
+
+Close the connection to the database.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+---
+
+## Exercise 6: No Coding Required
+
+A database is planned to consist of the following relations. **New relations will not be added to the database.** **New information may be added to relations.**
+
+```{r, echo = F}
+# Table: TEACHING_ASSISTANT
+
+tab <- data.frame(
+  H1 = c("TA1", "TA2", "TA3", "TA4"),
+  H2 = c("SMITH", "ZHANG", "LIU", "LIU"),
+  H3 = c("D1", "D2", "D1", "D3"),
+  H4 = c("SH01", "SH02", "SH01", "SH03")
+)
+
+colnames(tab) <- c("TA_ID", "NAME", "DEPT_NO", "OFFICE_NO")
+
+tab %>% 
+  kbl(align = "c", caption = "TEACHING \\textunderscore ASSISTANT") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(bootstrap_options = c("bordered"), 
+                full_width = F,
+                position = "center",
+                latex_options = "hold_position") %>%
+  column_spec(1, border_left = T) %>%
+  column_spec(4, border_right = T) %>%
+  row_spec(0, bold = T, color = "blue")
+```
+
+```{r, echo = F}
+# Table: UCSB_DEPARTMENT
+
+tab <- data.frame(
+  H1 = c("D1", "D2", "D3"),
+  H2 = c("SOCIOLOGY", "GEOGRAPHY", "MATH")
+)
+
+colnames(tab) <- c("DEPT_NO", "NAME")
+
+tab %>% 
+  kbl(align = "c", caption = "UCSB DEPARTMENT") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(bootstrap_options = c("bordered"), 
+                full_width = F,
+                position = "center",
+                latex_options = "hold_position") %>%
+  column_spec(1, border_left = T) %>%
+  column_spec(2, border_right = T) %>%
+  row_spec(0, bold = T, color = "blue")
+```
+
+```{r, echo = F}
+# Table: OFFICE
+
+tab <- data.frame(
+  H1 = c("SH01", "SH02", "SH03"),
+  H2 = c("345", "454", "189")
+)
+
+colnames(tab) <- c("OFFICE_NO", "PHONE_EXT")
+
+tab %>% 
+  kbl(align = "c", caption = "OFFICE") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(bootstrap_options = c("bordered"), 
+                full_width = F,
+                position = "center",
+                latex_options = "hold_position") %>%
+  column_spec(1, border_left = T) %>%
+  column_spec(2, border_right = T) %>%
+  row_spec(0, bold = T, color = "blue")
+```
+
+**Database Description:**
+
+\bigskip
+
+- **TEACHING ASSISTANT**
+    - `TA_ID`: a unique identifier is assigned to each teaching assistant (TA)
+    - `NAME`: TA's name
+    - `DEPT_NO`: a unique identifier is assigned to each UCSB academic department.
+    
+\bigskip
+
+- **UCSB DEPARTMENT**
+    - `DEPT_NO`: a unique identifier is assigned to each UCSB academic department.
+    - `NAME`: Name of academic department
+
+\bigskip
+
+
+- **OFFICE**
+    - `OFFICE_NO`: a unique office identification number. Each TA can only be assigned one office but may have to share. 
+    - `PHONE_EXT`: landline phone extension. Each office has only one phone ext.
+
+\bigskip
+
+
+
+For the above database, identify the primary keys and foreign keys. When listing the foreign keys, use the syntax introduced on Worksheet 13: i.e. `TableName.ForeignKey -> Table2Name.PrimaryKey`
+
+
+`r bfcolor("Solution:", "blue")`
+
+**Replace this line with your solution**
+
+
+\
+
+---

@@ -1,0 +1,228 @@
+---
+title: "PSTAT 10: Worksheet 14"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due 30 minutes after Lab Section, on Canvas"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- We are back to having only computing exercises on the worksheets. As such, this worksheet is due **30 minutes after the end of Lab**, as was the case in the first few weeks of this course.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+For this worksheet, we need will again connect to the Chinook DB from lecture. Make sure the database is available to this .Rmd file in `data` folder
+
+## Exercise 1: Connecting to the database
+
+Load the necessary packages and open a connection to the Chinook database housed in the sqlite file in the data folder
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+
+\
+
+---
+
+## Exercise 2: (Optional) Warming Up
+
+**(a)** Know the field names: What are the names of all the fields for every track?
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Look at first five records for TrackId, Name, AlbumId, and Milliseconds.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+
+---
+
+## Exercise 3: Logicals in WHERE clause
+
+**(a)** Find all tracks shorter than 30,000ms (= 30s)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Retrieve tracks shorter than 30,000ms from the album with `AlbumId` = 18 by using "and" in the `WHERE` clause
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Retrieve all tracks **either** shorter than 30,000ms **or** with `AlbumId` = 18
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** Retrieve tracks shorter than 30,000ms from albums other than AlbumId = 18 in three ways
+
+1. Use "not AlbumId = 18" in WHERE clause
+2. Use  the standard SQL "not" operator `<>` in WHERE clause
+3. Use the SQLite "not" operator `!=` in WHERE clause
+
+Check that all three return the same result. Since SQLite is a lightweight database, SQLite specific SQL like the `!=` won't work with other RDBMS. So it's better to stick with the standard SQL syntax so that your SQL statements can be moved over to other RDBMS's without changes (pretty much like PDF is standard file format that works on all computer systems)
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(e)** Retrieve the `TrackId`, `Name`, `AlbumId`, and `Bytes` for all tracks between 300,000,000 and 400,000,000 bytes (approx between 286MB and 381MB) 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 4: Other quirks in WHERE clause
+
+**(a)** _String-within-String in R:_ Find all tracks named "Branch Closing". (Note: You'll need to use single quotes 'Branch Closing' to avoid getting `R` confused with `"` of the sql statement)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+
+**(b)** _SQL is case-insensitive:_ Have you noticed this? Try writing any of your previous SQL queries by changing upper case to lower case or vice-versa for all or  any part of the SQL query. Does it work? _If needed, remember to change the R code chunk options to allow you to knit your document to submit it._
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+**(c)** Try running 
+```{r, eval = F}
+SeLecT tRaCkiD, nAmE, aLbUmId FrOm TrAcK
+                          wHeRe NaMe = 'BrAnCh ClOsInG'
+```
+as your SQL query. Make sure you interpret what is returned and why. _If needed, remember to change the `R` code chunk options to allow you to knit your document to submit it._
+                          
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 5: Your own SQL query
+
+Write your SQL query that uses `GROUPBY`, `WHERE` And `HAVING` and describe in words what your query is doing. You may choose another table to query if you like.  
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 6: Don't forget to close the connection to the database
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
