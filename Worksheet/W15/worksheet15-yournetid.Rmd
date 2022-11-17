@@ -1,0 +1,237 @@
+---
+title: "PSTAT 10: Worksheet 15"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due by 11:59pm on Friday 11/18, on Canvas"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- As a reminder, this worksheet is due at 11:59pm on Friday 11/18.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+For this worksheet, we need will again connect to the Chinook DB from lecture. Make sure the database is available to this `.Rmd` file in `data` folder
+
+## Exercise 1: Connecting to the database
+
+Load the necessary packages and open a connection to the Chinook database housed in the sqlite file in the data folder
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 2: Exploring the Database
+
+**(a)** What is the average length of a track in the album with `AlbumId` = 160?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+
+**(b)** Why is the following code incorrect in finding the average length of tracks for each albums with `AlbumId` between 250 and 255, inclusive?
+
+```{r, eval = F}
+dbGetQuery(chinook_db,
+           "SELECT AVG(Milliseconds)
+           FROM track
+           WHERE AlbumId >= 250 AND AlbumId <= 255")
+```
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer**
+
+
+\
+
+**(c)** Write code to find the average length of tracks for each albums with AlbumId between 250 and 255, inclusive, by using a `WHERE` clause
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(d)** Write code to find the average length of tracks for each albums with `AlbumId` between 250 and 255, inclusive, by using a `HAVING` clause
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+
+**(e)** Find the total number of tracks for albums with albumid between
+10 and 15 inclusive. (Use an alias so the output is easy to read)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 3: Exploring the Database
+
+**(a)** In a single query, return the track id, track name, album id, mediatype id, and mediatype name
+of all tracks with `AlbumId` = 10.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** Produce the following relation with a three-way join.
+
+| `TrackId` | `TrackName` | `AlbumId` | `AlbumTitle` | `Genre` |
+|----------:|------------:|----------:|-------------:|--------:|
+3178	     |        The Dundies	  |     250	 | The Office, Season 2	   |   TV Shows
+3179	     |  Sexual Harassment	  |     250	 | 	The Office, Season 2	 |   TV Shows
+3180	     |    Office Olympics	  |     250	 | 	The Office, Season 2	 |   TV Shows
+3181	     |           The Fire	  |     250	 | 	The Office, Season 2	 |   TV Shows
+3182	     |        Halloween	    |     250	 | 	The Office, Season 2	 |   TV Shows
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(c)** Retrieve the average track size  for all tracks in each genre, along with the name of the genre. Your output will look somewhat like this:
+
+AvgBytes | GenreId | GenreName |
+|--------:|--------:|----------:|
+9007374   |     1   |   Rock		
+9488137   |   	2   |   	Jazz		
+9234573   |   	3   |   	Metal		
+7691003   |   	4   |   	Alternative & Punk		
+2123262   |   	5   |   	Rock And Roll		
+8625576   |   	6   |   	Blues		
+7710589   |   	7   |   	Latin		
+8237493   |   	8   |   	Reggae		
+4745668   |   	9   |   	Pop		
+8090772   |   	10   |   	Soundtrack
+7239057   |     	11   |     	Bossa Nova		
+6160518   |     	12   |     	Easy Listening		
+9474752   |     	13   |     	Heavy Metal		
+6575926   |     	14   |     	R&B/Soul		
+10691926   |     	15   |     	Electronica/Dance		
+7129267   |     	16   |     	World		
+6534717   |     	17   |     	Hip Hop/Rap		
+507078984   |     	18   |     	Science Fiction		
+340261678   |     	19   |     	TV Shows		
+532930426   |     	20   |     	Sci Fi & Fantasy
+506946967   |     	21   |     	Drama		
+316904466   |     	22   |     	Comedy		
+5883474   |     	23   |     	Alternative		
+5220907   |     	24   |     	Classical		
+2861468   |      	25   |     	Opera
+
+
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+
+## Exercise 4: Your own SQL query
+
+Write your own SQL query that uses a join and describe in words what your query is doing. You may choose another table to query if you like.  
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 6: Don't forget to close the connection to the database
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
