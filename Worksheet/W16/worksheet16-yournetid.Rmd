@@ -1,0 +1,278 @@
+---
+title: "PSTAT 10: Worksheet 16"
+subtitle: "YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID"
+author: "Collaborated with: LAST NAME, FIRST NAME, NETID of any collaboraters"
+date: "Due by 11:59pm on Wednesday 11/23, on Canvas"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+```
+
+---
+
+# Instructions for Submission
+
+- As a reminder, this worksheet is due at 11:59pm on Wednesday 11/23.
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+# Database Introduction
+
+In this worksheet, we will explore the "Tiny Clothes" Database that was introduced in Lecture 16. As a reminder, this database stores information pertaining to a (fictional) online clothing store, called "Tiny Clothes". The database is stored in the file `tinyclothes.sqlite` in the `data` folder of this worksheet; additionally, the Database Description is included in a `.PDF` file called `Database_Description.PDF`.
+
+\
+
+---
+
+## Exercise 1: Exploring the Database
+
+**(a)** Establish a connection to the database; store this connection in a variable called `tc_db`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+\
+
+**(b)** List the names of all relations included in the database.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+\
+
+
+**(c)** What information is stored in the `INVOICES` relation? **Consult the Database Description for this part.**
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer.**
+
+
+\
+
+**(d)** What fields are contained in the `STOCK_TOTAL` relation? **Use Code to answer this part.**
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+---
+
+## Exercise 2: Querying the Database
+
+**(a)** How many employees are younger than 50? 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+**(b)** Which departments begin with the letter "`S`"?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+**(c)** Does the "Tiny Clothes" store sell white socks?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+**(d)** An item of clothing is selected at random from the "Tiny Clothes" store. Given that this item is a pair of pants, what is the probability that it is blue? Try to do this using `SQL` queries to the greatest extent possible; you may need more than one query, and you can also feel free to perform standard mathematical operations (e.g. addition, multiplication, division, etc.) outside of your `SQL` queries.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+---
+
+## Exercise 3: Aggregations and Averages
+
+**(a)** What is the average quantity invoiced for orders of product `p2`?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+\
+
+**(b)** Using a single `SQL` Query, extract the average price of items in all orders. Return both the order number as well as the average price; use aliasing to display the average price as "`avg_price`".
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+\
+
+**(c)** Using a suitable join, write code to join `STOCK_TOTAL` and `INVOICES` with the condition that the product numbers match.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+\
+
+**(d)** Produce the following table using a suitable join:
+
+| `ORDER_NO` | `PROD_NO` | `QUANTITY` | `PRICE` | `NAME` | `COLOR` |
+|--------:|--------:|--------:|--------:|--------:|--------:|
+| 1 | p1 | 100 | 2.99 | PANTS | BLUE |
+| 1 | p2 | 20000 | 2.99 | PANTS | KHAKI |
+| 2 | p2 | 1000 | 2.99 | PANTS | KHAKI |
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+---
+
+## Exercise 4: New Shoes!
+
+Due to popular demand, the 'Tiny Clothes' store has decided to start carrying shoes! In this problem, we will update the database to reflect this change.  \
+
+**(a)** Create a new relation in the `tinyclothes` database called `SHOES`, using the following schema:
+
+> `SHOES`(**`SHOE_ID`**, `MODEL`, `COLOR`)
+
+**Make sure to implement PRIMARY KEYS!**
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+`r bfcolor("IMPORTANT NOTE:", "red")` You will be able to run this code chunk only once (can you tell me why?) This will prevent you from knitting your file multiple times. As such, you should set `eval` to `FALSE` after you've knitted once.
+
+
+\
+
+**(b)** Write code to check that `SHOES` now exists in your database. (Don't overthink this too much!)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+
+
+\
+
+**(c)** Add the following tuples (remember that 'tuple' is another word for 'record') to SHOES:
+
+- \<`001`, `Running`, `PINK`\>
+- \<`002`, `XCountry`, `GREEN`\>
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+`r bfcolor("IMPORTANT NOTE:", "red")` Similar to the previous part, you will be able to run this code chunk only once (again, can you tell me why?) This will prevent you from knitting your file multiple times. As such, you should set `eval` to `FALSE` after you've knitted once.
+
+
+\
+
+**(d)** Try adding the tuple: \<`001`, `Climbing`, `BLUE`\>. Show that this results in an error (remember that you can change the options in your code chunk header!) and explain why you got this error.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+\
+
+---
+
+## Exercise 5: Closing the Connection
+
+Don't forget to close your connection to the database!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Replace this line with your code
+```
+
+---
+
+# Last exercise : Learning Gains
+
+Please remember to fill out these learning gains before submitting your work to Canvas!
+
+-   Gain 1
+-   Gain 2
+-   Gain 3
