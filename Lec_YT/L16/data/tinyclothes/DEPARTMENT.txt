@@ -1,0 +1,4 @@
+DEPT_NO,NAME,MANAGER
+D1,Accounts,E1
+D2,Stores,E3
+D3,Sales,E5

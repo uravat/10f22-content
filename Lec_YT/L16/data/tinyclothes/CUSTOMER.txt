@@ -1,0 +1,5 @@
+CUST_NO,NAME,ADDRESS
+C1,ALEX,State
+C2,BOB,Hollister
+C3,CAROL,Ocean
+C6,JUAN,Phelps
