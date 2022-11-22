@@ -1,7 +1,7 @@
 ---
 title: 'PSTAT 10: Homework 7'
 subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
-date: "Due on Canvas by 11:59pm on Week 10 Wednesday November 30"
+date: "Due on Canvas by 11:59pm on Week 10 Thursday December 1"
 output:
   html_document:
     theme: readable
