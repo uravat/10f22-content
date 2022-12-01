@@ -1,0 +1,8 @@
+"CourseID","Title","Prereqs"
+"PSTAT 5A","Understanding Data","Algebra"
+"PSTAT 5H","Statistics","Statistics"
+"PSTAT 8","Transition to Data Science, Probability and Statistics","Calculus; Statistics; Programming"
+"PSTAT 10","Principles of Data Science with R","Calculus"
+"PSTAT 105","Introduction to Nonparametric Methods","Linear Models"
+"PSTAT 115","Introduction to Bayesian Data Analysis","Calculus; Linear Algebra"
+"PSTAT 120A","Probability and Statistics","Calculus; Linear Algebra"

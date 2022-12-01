@@ -1,0 +1,408 @@
+---
+title: 'PSTAT 10: Homework 7'
+subtitle: 'YOUR LAST NAME, YOUR FIRST NAME: YOUR NETID'
+date: "Due on Canvas by 11:59pm on Week 10 Thursday December 1"
+output:
+  html_document:
+    theme: readable
+    toc: yes
+---
+
+\newcommand{\Prob}{\mathbb{P}}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = F}
+bfcolor <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{\\textbf{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'><b>%s</b></span>", color, x)
+  } else x
+}
+library(kableExtra)
+```
+
+---
+
+# Instructions for Submission
+
+- As usual, 5 Multiple Choice Questions also appear on Canvas and are a required part of this homework. **Please note** that the multiple choice questions for this homework cover material from throughout the course; not just material tested on this homework!
+- Remember to save your `.Rmd` file as `hw07-yournetid.Rmd`
+
+\
+
+---
+
+# Introduction
+
+## Fall 2022 Course Offerings Database
+
+We will be exploring the `F22_Offerings` database, which contains information on a portion of the PSTAT courses being offerred this quarter (Fall 2022). A complete database description is included in a file called `Database_Description.pdf`.
+
+
+\
+
+---
+
+# Exercises
+
+## Exercise 0: YAML
+
+Update the YAML to reflect your own information (i.e. name, collaborators, etc.). If you did not collaborate with anyone, note that down in the YAML. 
+
+
+\
+
+---
+
+
+## Exercise 1: Creating the Database
+
+You will notice that we have provided the database to you in the form of several `.csv` files. Our first task will be to combine these into a single `.sqlite` database. This will very closely mirror the process we used in Lecture 16. \
+
+**(a)** Load the required libraries for connecting to an `RSQLite` database.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(b)** You should see a file called `f22_offerings.sqlite` included in the `data` folder of this homework. (It should be blank at first!) Establish a connection to the database and assign this connection to a variable called `f22_offerings_db`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(c)** In the `data` folder, you should see a subfolder called `f22_offerings`. In this subfolder, you should see a series of `.csv` files. Create appropriately-named data frames from these `.csv` files. (Again: Lecture 16 will be very useful!)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(d)** Write the data frames you created in part (c) to the `f22_offerings.sqlite` database.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(e)** Check that your tables have been successfully written to the database.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 2: Exploring the Database
+
+**(a)** Write code to ensure foreign keys constraints are enforced. (This was done several times in Lecture.)
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** List the fields in the `OFFERINGS` relation, and check that they match the fields listed in the database description. 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** How many courses is Professor Wainwright teaching? **Answer using CODE;** don't just manually count!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(d)** How many lecture sections of PSTAT 5A are there? **Answer using CODE;** don't just manually count!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(e)** How many classes have a lecture that meet on Mondays (not necessarily *just* on Mondays)? **Answer using CODE;** don't just manually count!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(f)** Which professors have offices in South Hall? Display the professors' last and first names, along with their office number. **Answer using CODE!** 
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 3: Exploring the Database Further
+
+**(a)** How many TA's are hosting a Section of PSTAT 5A?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** How many TA's are hosting a Section of PSTAT 10?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(c)** Which TA's have a first initial between E and I, inclusive? Display the associated TA's Last name as well as their first initial and the class they are TA'ing. **Hint:** Look up how to use the `BETWEEN` clause in `SQL`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(d)** For each course being offered, identify the TA with the longest last name. Display the course, last name, and first initial of the associated TA's. **Hint:** Look up how to use the `LENGTH` clause in `SQL`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(e)** Which classes have Calculus as a prerequisite?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(f)** Create a barplot to visualize the distribution of prerequisites. That is, your x-axis should include the names of all prerequisite subjects (e.g. Calculus, Linear Algebra, etc.) and your y-axis should count the number of courses that require each subject as a prerequisite. **Hint:** Consider extracting all of the prerequisites, using the `strsplit()` and `unlist()` functions, and then calling `barplot()` as we did before.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 4: Aggregations and Explorations
+
+
+**(a)** Produce the following table using a suitable join. 
+
+| CourseID | Days | Times | Lecture_Location | Prof_Surname | Prof_Forename | Office |
+|-------:|-------:|-------:|-------:|-------:|-------:|-------:|
+| PSTAT 5A | TR | 8-915 | CHEMISTRY 1179 | Swenson | Julie | SH 5524 |
+| PSTAT 5A | MWF | 2-250 | EMBARCADERO HALL | Wainwright | Brian | UNKNOWN |
+| PSTAT 5H | M | 11-1150 | GIRVETZ 2127 | Meiring | Wendy | SH 5510 |
+| PSTAT 8 | TR | 11-1215 | HSSB 1173 | Solis | Sharon | ETR 103B |
+| PSTAT 10 | TR | 8-915 | IV THEATRE 1 | Ravat | Uma | SH 5503 |
+| PSTAT 115 | TR | 8-915 | HSSB 1173 | Targino | Rodrigo | OG 1203 |
+| PSTAT 120A | MWF | 12-1250 | LOTTE LEHMANN CONCERT HALL | Wainwright | Brian | UNKNOWN |
+| PSTAT 120A | TR | 2-315 | TD-W 1701 | Coburn | Katie | SH 5524 |
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** Are any professors sharing an office? **Do NOT simply look up the answer from the table you just created in part (a).** Rather, think about how you can answer this question using code. As a hint: think about how you can use `COUNT` and uniqueness to approach this problem. Once you're done, you can check your answer (visually) using the table you created in part (a). **Note:** you will need to examine the result of two separate queries to answer this problem.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+---
+
+## Exercise 5: Fixing a Mistake
+
+You may notice that the `OFFERINGS` relation includes a tuple on PSTAT 105, taught by Dr. Carter, whereas the `PROFESSORS` relation is missing Dr. Carter's information. Let's fix that!
+
+**(a)** Add the following tuple to the `PROFESSORS` relation:
+
+- \<Carter, Andrew, SH 5507\>
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(b)** Check that your tuple has been successfully added.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+**(c)** Now, recount the number of professors that have an office in South Hall.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exercise 6: Probabilities
+
+For each of these parts, use a combination of `SQL` queries and computations done in `R`.
+
+**(a)** Suppose a Teaching Assistant is selected at random. Given that they are a TA for PSTAT 120A, what is the probability that their first name begins with the letter "S"?
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\ 
+
+**(b)** In this problem, we will work toward answering the question:
+
+> From the pool of professors included in the dataset, a single professor is to be selected at random. What is the probability that this professor is either teaching PSTAT 5A or has an office in South Hall? 
+
+
+We will work toward our answer using a combination of the probability theory and `SQL` knowledge we've learnt in this class. 
+
+\
+
+**(i)** Define events, and identify the probability rules you'll use to calculate the desired probability. 
+
+`r bfcolor("Solutions:", "blue")`
+
+**Replace this line with your answer.**
+
+\
+
+**(ii)** Notice that the professors' offices and the courses they are teaching are located in two separate relations. Join these two relations, and return all rows; save this resulting table in a data framed called `table1_join_table2`. called `joined_tab`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+
+\
+
+**(iii)** Now, write your `table1_join_table2` data frame from part (ii) above to a new table in the `F22_Offerings` database, called `JOINED_TABLE`.
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+
+**(iv)** Finally, use your newly written table to obtain the desired probability by writing as many `SQL` queries are necessary. Keep in mind you may need to perform some computations in `R` (i.e. outside of `SQL` queries).
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---
+
+## Exericse 7: Closing the Connection
+
+Don't forget to close your connection to the database!
+
+`r bfcolor("Solutions:", "blue")`
+
+```{r}
+## Add your code here
+```
+
+\
+
+---

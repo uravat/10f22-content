@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.649">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>WORKSHEET 17</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="w17_files/libs/clipboard/clipboard.min.js"></script>
+<script src="w17_files/libs/quarto-html/quarto.js"></script>
+<script src="w17_files/libs/quarto-html/popper.min.js"></script>
+<script src="w17_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="w17_files/libs/quarto-html/anchor.min.js"></script>
+<link href="w17_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="w17_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="w17_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="w17_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="w17_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">0. Introduction</a></li>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link" data-scroll-target="#preliminaries">1. Preliminaries</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">2. Getting Started</a></li>
+  <li><a href="#headers" id="toc-headers" class="nav-link" data-scroll-target="#headers">3. Headers</a></li>
+  <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting">4. Text Formatting</a></li>
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code">5. Inline Code</a></li>
+  <li><a href="#itemized-and-enumerated-lists" id="toc-itemized-and-enumerated-lists" class="nav-link" data-scroll-target="#itemized-and-enumerated-lists">6. Itemized and Enumerated Lists</a></li>
+  <li><a href="#equations-in-rmarkdown" id="toc-equations-in-rmarkdown" class="nav-link" data-scroll-target="#equations-in-rmarkdown">7. Equations in RMarkdown</a></li>
+  <li><a href="#links-and-images" id="toc-links-and-images" class="nav-link" data-scroll-target="#links-and-images">8. Links and Images</a></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">9. Table of Contents</a></li>
+  <li><a href="#final-touches" id="toc-final-touches" class="nav-link" data-scroll-target="#final-touches">10. Final Touches</a></li>
+  <li><a href="#uploading" id="toc-uploading" class="nav-link" data-scroll-target="#uploading">11. Uploading</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">WORKSHEET 17</h1>
+<p class="subtitle lead">PSTAT 10: Fall 2022, with Dr.&nbsp;Uma Ravat <br> Worksheet Originally Created by Ethan Marzban</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">0. Introduction</h2>
+<p>Welcome to Worksheet 17! This worksheet is designed to help re-familiarize you with the syntax of RMarkdown. By the end of this worksheet, you should have a nicely-formatted report, which we will generate using an <code>.Rmd</code> file.</p>
+</section>
+<section id="preliminaries" class="level2">
+<h2 class="anchored" data-anchor-id="preliminaries">1. Preliminaries</h2>
+<p>First make sure you have downloaded RStudio to your local machine; you should have done this in Lecture 17. We will be generating our report using your downloaded (local) version of RStudio.</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">2. Getting Started</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a new <code>.Rmd</code> file using the steps outlined in Lab Section 12 (and also covered during Lecture 17). Update your YAML header to accomplish the following:</p>
+<ul>
+<li>Set the title of your document to be “Worksheet 17”</li>
+<li>Set the author of your document to be your name (so, for example, the author of my document would be “Ethan M”)</li>
+<li>Set the date to be the date of your Lab Section this week</li>
+</ul>
+</div>
+</div>
+<p>Hopefully this is a bit of a review- after all, we’re all pros at YAML headers now!<br>
+</p>
+<p>Now, the first chunk you should see looks like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is called the <code>setup</code> chunk: do <strong>NOT</strong> change or delete this chunk! This Instead:</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Delete everything after the <code>setup</code> chunk. Then, knit your document and ensure you don’t have any errors.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Throughout this worksheet, you should get into the habit of knitting after each action item to ensure that you don’t have too many errors compounding.</p>
+</div>
+</div>
+</section>
+<section id="headers" class="level2">
+<h2 class="anchored" data-anchor-id="headers">3. Headers</h2>
+<p>Now that we have a blank slate to work with, we can repopulate our document with things that we actually want! The first thing we should do is go over how to create headers in RMarkdown syntax.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are several different “levels” of headers:</p>
+<ul>
+<li>A main (first-level) header</li>
+<li>A second-level header</li>
+<li>A third-level header</li>
+<li>And so on and so forth</li>
+</ul>
+<p>In RMarkdown, the level of the header is specified by how many hashtags (<code>#</code>’s) we include before the header text.</p>
+</div>
+</div>
+<p>For example: all of the headers used in this explanation document are second-level headers.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a first-level (main) header right after the <code>setup</code> code chunk, and have it say <code>Section 1</code>. Knit your document, and ensure it displays properly.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After your first-level (main) <code>Section 1</code> header, add a second-level header that says <code>Subsection 1.1</code>. Again, knit your document and ensure that this header appears smaller than the first-level (main) header you created in the action item above.</p>
+</div>
+</div>
+</section>
+<section id="text-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="text-formatting">4. Text Formatting</h2>
+<p>Obviously, a document can’t be comprised solely of headers- we need text! As we have seen before, text written in your <code>.Rmd</code> file will display exactly as it is written, in your final knitted <code>.html</code> document. That is: when we write a sentence in our <code>.Rmd</code> file and then knit our file, our knitted <code>.html</code> file contains the text we wrote.<br>
+</p>
+<p>We can, however, also spice up the formatting of our text!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are several different text formatting options available to us in RMarkdown:</p>
+<ul>
+<li><strong>Boldface Text</strong>: <code>**Boldface Text**</code></li>
+<li><em>Italicized Text</em>: <code>*Italicized Text*</code></li>
+<li><code>Fixed-Width Text</code>: <code>`Fixed-Width Text`</code></li>
+</ul>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Underneath your second-level header <code>"Subsection 1.1"</code>, write the following sentence <strong>including all formatting as it appears here</strong>:</p>
+<blockquote class="blockquote">
+<p>The <strong>quick</strong> brown fox <em>jumps</em> over the <code>lazy</code> dog</p>
+</blockquote>
+</div>
+</div>
+<p>By the way, notice how we managed to display the sentence above as a block-quote? The syntax to do that in RMarkdown is using a single <code>&gt;</code> symbol, followed by a space. For example,</p>
+<blockquote class="blockquote">
+<p>This text</p>
+</blockquote>
+<p>was generated using the code <code>&gt; This text</code>.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be mindful about line breaks and spaces when using RMarkdown syntax.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Underneath your “quick brown fox” text, add a block-quote that says</p>
+<blockquote class="blockquote">
+<p>That was a really cool sentence!</p>
+</blockquote>
+<p>Knit your document, and ensure the block-quote is displaying properly. (Again: remember the Important Information callout we just mentioned above!)</p>
+</div>
+</div>
+</section>
+<section id="inline-code" class="level2">
+<h2 class="anchored" data-anchor-id="inline-code">5. Inline Code</h2>
+<p>We’ve spent the better part of a quarter talking about <code>R</code> code. In the past, when we’ve needed to run <code>R</code> in our <code>.Rmd</code> file, we’ve added a code chunk. Let’s practice doing that once more:</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make a new first-level (main) header called <code>Section 2: Coding</code>. Right underneath your header, include an <code>R</code> code chunk which runs and displays the output of <code>2 + 2</code>. Your output should look something like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Did you know we can run code inline as well? That is, we can run <code>R</code> code without having to create a new chunk each time!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To run inline code, use a backtick (<code>`</code>) followed by the letter <code>r</code>, followed by a space, then followed by the code you want to run, followed by a closing backtick. For example: <code>`</code> <code>r</code> <code>2 + 2</code> <code>`</code> (without the spaces) should simply display as the number “4” in your knitted document.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write the following sentence underneath the code chunk you just created, replacing the number <code>3</code> with inline <code>R</code> code to compute <code>1 + 2</code>.</p>
+<blockquote class="blockquote">
+<p>The result of adding 1 and 2 together is 3</p>
+</blockquote>
+</div>
+</div>
+</section>
+<section id="itemized-and-enumerated-lists" class="level2">
+<h2 class="anchored" data-anchor-id="itemized-and-enumerated-lists">6. Itemized and Enumerated Lists</h2>
+<p>We’ve actually covered how to create lists already- remember in Homework 2 when we asked you to write a list of the functions you learned in Lecture 4?</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are two main types of lists: <strong>itemized</strong> and <strong>enumerated</strong> lists. Itemized lists have no implicit ordering: these are sometimes called “bulleted” lists, and they look like this:</p>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+<p>Enumerated lists <em>do</em> have an implicit ordering:</p>
+<ol type="1">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ol>
+<p>In RMarkdown, itemized lists are created by navigating to a new line, writing a dash (<code>-</code>) or an asterisk (<code>*</code>), followed by a space, followed by the text you wish to have displayed in the corresponding item. For instance: the itemized list above was generated using the code</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In RMarkdown, enumerated lists are created by navigating to a new line, writing the number of the item (e.g.&nbsp;1, 2, etc.) either either a close-parenthesis (<code>)</code>), or a period (<code>.</code>) For instance: both of the following codes will knit to an enumerated list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="er">)</span> Item <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="er">)</span> Item <span class="dv">2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="er">)</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Item <span class="dv">1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Item <span class="dv">2</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Item <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To add sublevel items, navitage to a new line, hit the space bar 4 times, and then add the corresponding item symbol (i.e.&nbsp;<code>-</code> or <code>*</code> for itemized lists; <code>1)</code> or <code>a)</code> or <code>1.</code> or <code>a.</code> for enumerated lists; etc.)</p>
+<ul>
+<li>As an example, this is a main-level item
+<ul>
+<li>Followed by a sublevel item!</li>
+</ul></li>
+</ul>
+<p>This was generated using</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> As an example, this is a main<span class="sc">-</span>level item</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> Followed by a sublevel item<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a new first-level header to your document that says <code>Section 3: Itemized and Enumerated Lists</code>. Underneath this, include the following list (making sure it displays properly when you knit!)</p>
+<ul>
+<li>Foreign keys must either point to an existing value or be NULL.
+<ul>
+<li>This is related to the “integrity” of a database.</li>
+<li>Database integrity is very important</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>Congratulations- you’ve unlocked the secret key-phrase for this worksheet! At the very top of your document (before your first first-level header) write the phrase <code>I am now an expert coder.</code> This will signal to the grader that you read the contents of this tutorial fully, and will ensure you get full points for this worksheet! (Keep in mind that you will not receive full credit if you don’t include this key-phrase.)</p>
+</section>
+<section id="equations-in-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="equations-in-rmarkdown">7. Equations in RMarkdown</h2>
+<p>One of the very nice things about RMarkdown is that it is able to (very nicely) combine both plain-text as well as equations!<br>
+</p>
+<p>The language used to specify equations in RMarkdown is called <code>LaTeX</code> (pronounced “lay-TECH”, or “lah-TECH”). LaTeX equations have two main styles: inline, like <span class="math inline">\(x + y\)</span>, and “display-style”, like</p>
+<p><span class="math display">\[ \sum_{i=1}^{k} x_i \]</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In LaTeX, inline equations are specified by single dollar signs and display-style equations are specified by double-dollar signs. For instance:</p>
+<ul>
+<li><code>$x + y$</code> will knit as <span class="math inline">\(x + y\)</span></li>
+<li><code>$$x + y$$</code> will knit as <span class="math display">\[x + y\]</span></li>
+</ul>
+<p>Make sure you do <strong>not</strong> add a space after your starting dollar sign or before your ending dollar sign; otherwise your document will not knit properly!</p>
+</div>
+</div>
+<p>Inside either an inline or display-style equation environment, we can use LaTeX-specific syntax to generate equations.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Standard mathematical symbols display in LaTeX as they would in text: this includes addition (<code>+</code>), subtraction (<code>-</code>), division (<code>/</code>), and multiplication (<code>*</code>).</li>
+<li>Exponents are generated using the caret (<code>^</code>): for example, <code>$x^2$</code> displays as <span class="math inline">\(x^2\)</span></li>
+<li>Subscripts are generated using the underscore (<code>_</code>): for example, <code>$x_2$</code> displays as <span class="math inline">\(x_2\)</span></li>
+</ul>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add a first-level (main) header that says <code>"Section 4: Typesetting Equations"</code>, and underneath it write the following sentence (including all LaTeX formatting!):</p>
+<blockquote class="blockquote">
+<p>The Pythagorean Theorem states that <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+</blockquote>
+<p>Knit your document, and ensure it displays properly.</p>
+</div>
+</div>
+<p>We can also typeset more advanced formulas and symbols:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Sums (using sigma-notation) are generated using the <code>\sum</code> command: for example, <code>$\sum_{x = 0}^{1} x$</code> displays as <span class="math inline">\(\sum_{x = 0}^{1} x\)</span></p></li>
+<li><p>Integrals (using sigma-notation) are generated using the <code>\int</code> command: for example, <code>$\int_{a}^{b} f(x) \ dx$</code> displays as <span class="math inline">\(\int_{a}^{b} f(x) \ dx\)</span></p></li>
+<li><p>Fractions are generated using the <code>\frac</code> command: for example, <code>$\frac{1}{2}$</code> displays as <span class="math inline">\(\frac{1}{2}\)</span></p></li>
+<li><p>Square-roots are generated using the <code>\sqrt</code> command: for example, <code>$\sqrt{2}$</code> displays as <span class="math inline">\(\sqrt{2}\)</span></p></li>
+<li><p>The symbol <span class="math inline">\(\pi\)</span> is generated using <code>$\pi$</code></p></li>
+</ul>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In LaTeX, curly braces (<code>{</code>, <code>}</code>) are used to delineate “chunks” of code/text. For example, if you just write <code>$x^-2$</code>, this displays as <span class="math inline">\(x^-2\)</span>. If we want to display <span class="math inline">\(x^{-2}\)</span>, we need to use <code>$x^{-2}$</code>.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the following equation to your document:</p>
+<p><span class="math display">\[ \int_{-\infty}^{\infty} e^{-\frac{1}{2} x^2 } \ dx = \sqrt{2\pi} \]</span></p>
+</div>
+</div>
+<p>There is nothing stopping us from including equations in itemized and enumerated lists!</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add the following list to your document, ensuring that it displays properly when knit:</p>
+<ul>
+<li><strong>Pythagorean Theorem:</strong> <span class="math inline">\(a^2 + b^2 = c^2\)</span></li>
+<li><strong>Euler’s Identity:</strong> <span class="math inline">\(e^{i \pi} + 1 = 0\)</span></li>
+</ul>
+</div>
+</div>
+<p>This is only just the surface of what LaTeX can do! If you are planning on going into any STEM-related field, we highly encourage you to delve deeper into the world of LaTeX as it will be a very valuable skill to have.</p>
+</section>
+<section id="links-and-images" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-images">8. Links and Images</h2>
+<p>Sometimes it is necessary to include hyperlinks and/or images. With RMarkdown, this is fairly straightforward!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The syntax of including a hyperlink in an <code>.Rmd</code> document is as follows:</p>
+<blockquote class="blockquote">
+<p><code>[text](link)</code></p>
+</blockquote>
+<p>For example, <a href="https://google.com">Click Here</a> was generated using <code>[Click Here](https://google.com)</code>.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make a new first-level header in your document called <code>Section 5: Links and Images</code>. Underneath this header, create clickable text that says “<code>PSTAT Department Website</code>” and, when clicked, navigates the user to the main website of the Department of Statistics and Applied Probability here at UCSB (https://pstat.ucsb.edu). Your final result should look and function like <a href="https://pstat.ucsb.edu">PSTAT Department Website</a>.</p>
+</div>
+</div>
+<p>The syntax of including images is fairly similar to the syntax used to create hyperlinks!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The syntax of including an image in an <code>.Rmd</code> document is as follows:</p>
+<blockquote class="blockquote">
+<p><code>![caption (optional)](filepath to image)</code></p>
+</blockquote>
+<p>where “filepath to image” should be replaced by the filepath to the image.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When including images, filepaths are very important. As such, it is a good idea to make sure your working directory is set properly.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Along with this worksheet description, you should see a folder called <code>Images</code>; inside this folder should be a file called <code>grapes.jpg</code>. Include this image in your <code>.Rmd</code> file with the caption “A Photo of Grapes”.</p>
+</div>
+</div>
+<p>Wow, that photo of grapes is pretty big, huh? Let’s fix that.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To resize an image, we can add an (optional) specification to our code to control the size of the image. For example</p>
+<blockquote class="blockquote">
+<p><code>![caption (optional)](filepath to image){width=50%}</code></p>
+</blockquote>
+<p>shrinks the image to 50% of its original width, while automatically shrinking the height to maintain the same height-to-width ratio.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Resize the picture of grapes to be 50% of its original width.</p>
+</div>
+</div>
+</section>
+<section id="table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents">9. Table of Contents</h2>
+<p>By now, we have quite a few sections and subsections in our document. It’s probably a good idea to include a table of contents!</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look up how to add a table of contents to an <code>.Rmd</code> file. As a hint: you will need to modify your <code>YAML</code> header.</p>
+</div>
+</div>
+</section>
+<section id="final-touches" class="level2">
+<h2 class="anchored" data-anchor-id="final-touches">10. Final Touches</h2>
+<p>We’ve covered a lot of ground! Let’s go ahead and start to close out this worksheet.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Knit your document and check that everything displays properly.</p>
+</div>
+</div>
+<p>Now, one thing we should cover is how to knit to different formats! For this class, we’ve been asking you to knit exclusively to <code>.html</code> files. <code>.Rmd</code> files can be knitted to lots of other formats as well- most notably, we can also generate <code>.PDF</code>’s from <code>.Rmd</code> files!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To knit to a <code>.PDF</code>, click the downwards-facing arrow next to the “knit” button and select “Knit to PDF.”</p>
+<p><img src="Images/knitting_to_pdf.jpg" class="img-fluid" style="width:75.0%"></p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Knit your document to a <code>.PDF</code>. After you’ve successfully knitted to a PDF, check your <code>.Rmd</code> file again and comment on what has changed (<strong>Hint:</strong> Look at the YAML header).</p>
+</div>
+</div>
+<p>You may notice that the fontsize in the PDF is a bit on the smaller size- let’s change that!</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important Information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When knitting to a PDF, we can use the <code>fontsize:</code> argument in the YAML header to specify font size</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Modify your YAML header to change the base fontsize of your document to 12pt. Knit your document again, and visually confirm that the fontsize has increased.</p>
+</div>
+</div>
+<p>The title also looks a little boring… let’s spruce it up!</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the title of your document to <strong>WORKSHEET 17</strong>, making sure the title properly knits to all-caps and boldface text.</p>
+</div>
+</div>
+<p>Also, did you notice that when you knit to a <code>.PDF</code>, your hyperlinks don’t get colored like they do when you knit to an <code>.html</code> document? Let’s fix that.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look up how to change the color of hyperlinked text in an RMarkdown document (<strong>Hint:</strong> you will need to modify your YAML header); then set your document to display all hyperlinked text in blue.</p>
+</div>
+</div>
+</section>
+<section id="uploading" class="level2">
+<h2 class="anchored" data-anchor-id="uploading">11. Uploading</h2>
+<p>Congratulations- you have finished creating your first formatted <code>.Rmd</code> file from scratch! This tutorial only <em>scratched</em> (no pun intended) the surface of what RMakrdown can do- we highly encourage you to take a look at the RMarkdown cheat sheet for more information on what other functionality <code>.Rmd</code> documents offer.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Action Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Navigate to the submission portal on Canvas. You should see that there are two “questions” in this week’s portal.</p>
+<ul>
+<li><p>Knit your document to an <code>.html</code> file and upload this <code>.html</code> file to the first question in Canvas</p></li>
+<li><p>Then, knit your document to a <code>.PDF</code> file and upload this <code>.PDF</code> file to the second question in Canvas</p></li>
+</ul>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
